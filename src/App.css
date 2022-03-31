@@ -37,3 +37,79 @@
     transform: translateY(0px);
   }
 }
+
+.bgVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.logoImg {
+  z-index: 10;
+  width: 7vmax;
+  height: 7vmax;
+}
+
+.logoCat {
+  width: 5vmax;
+  height: 5vmax;
+}
+
+.white {
+  color: white;
+}
+
+.f-glory {
+  color: white;
+  font-family: 'Glory', sans-serif;
+  font-weight: 700;
+}
+
+.f-glory-400 {
+  color: white;
+  font-family: 'Glory', sans-serif;
+  font-weight: 400;
+}
+
+.fsize-5 {
+  font-size: 5vmax;
+}
+
+.fsize-4 {
+  font-size: 4vmax;
+}
+
+.fsize-3 {
+  font-size: 3vmax;
+}
+
+.fsize-2 {
+  font-size: 2vmax;
+}
+
+.fsize-1 {
+  font-size: 1vmax;
+}
+
+.ta-s {
+  text-align: start;
+}
+
+.buttonConnectWallet {
+  background-color: #3BD795;
+  height: 7vh;
+  border-radius: 30px;
+}
+
+.leftMenuItem {
+  color: white;
+}
+
+.input-social {
+  border-color: #3BD795;
+  background: transparent;
+  border-radius: 5px;
+}
