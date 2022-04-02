@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* margin-top: -20px; */
+  overflow: hidden;
 }
 
 .App-logo {
@@ -42,20 +47,23 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+  /* width: 100vw; */
+  /* height: 100vh; */
+  /* 1519 × 754 */
+  width: 1519;
+  height: 754;
   z-index: -1;
 }
 
 .logoImg {
   z-index: 10;
-  width: 7vmax;
-  height: 7vmax;
+  width: 6vmax;
+  height: 6vmax;
 }
 
 .logoCat {
-  width: 5vmax;
-  height: 5vmax;
+  width: 4vmax;
+  height: 4vmax;
 }
 
 .white {
@@ -63,14 +71,40 @@
 }
 
 .f-glory {
-  color: white;
   font-family: 'Glory', sans-serif;
   font-weight: 700;
 }
 
 .f-glory-400 {
-  color: white;
   font-family: 'Glory', sans-serif;
+  font-weight: 400;
+}
+
+.f-barlow-700 {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;  
+}
+
+.f-barlow-500 {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 500;
+}
+
+.f-barlow-400 {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.f-roboto-400 {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400
+}
+
+.f-righteous-400 {
+  font-family: 'Righteous', cursive;
   font-weight: 400;
 }
 
@@ -94,22 +128,98 @@
   font-size: 1vmax;
 }
 
+.fsize-3h {
+  font-size: 3vh;
+}
+
 .ta-s {
   text-align: start;
 }
 
 .buttonConnectWallet {
   background-color: #3BD795;
-  height: 7vh;
+  height: 6vh;
+  width: 10vw;
+  border-radius: 30px;
+}
+.buttonConnectWallet:hover {
+  cursor: pointer;
+}
+
+.buttonJoin {
+  background-color: #3BD795;
+  height: 6vh;
+  /* width: 10vw; */
   border-radius: 30px;
 }
 
+.buttonJoin:hover {
+  cursor: pointer;
+}
+
+.docsButton:hover {
+  cursor: pointer;
+}
+
 .leftMenuItem {
-  color: white;
+  color: rgb(118, 118, 118);
+}
+
+.leftMenuItemSelect {
+  color: rgb(249, 246, 246);
+}
+
+.leftMenuButton:hover .leftMenuItem {
+  color: #90aba0;
+  cursor: pointer;
 }
 
 .input-social {
   border-color: #3BD795;
   background: transparent;
   border-radius: 5px;
+  color:aliceblue;
+}
+
+.h-10 {
+  height: 30px;
+}
+
+.h-15 {
+  height: 5vh;
+}
+
+.h-5h {
+  height: 5vh;
+}
+
+.slaid {
+  
+  transform: translateY(50px);
+  /* background-color: black; */
+  width: 522px;
+  height: 301px;
+}
+
+.slaidHide {
+  display: none;
+}
+
+.slaidAnim {
+  transform: translateY(50px);
+  /* background-color: black; */
+  width: 522px;
+  height: 301px;
+  animation-name: slaidShow;
+  animation-duration: 0.5s;
+}
+
+
+@keyframes slaidShow {
+  0% {
+    transform: translateY(500px);
+  }
+  100% {
+    transform: translateY(50px);
+  }
 }
