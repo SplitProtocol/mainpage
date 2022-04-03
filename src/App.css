@@ -132,6 +132,14 @@
   font-size: 3vh;
 }
 
+.fsize-2h {
+  font-size: 3vw;
+}
+
+.fsize-3w {
+  font-size: 3vw;
+}
+
 .ta-s {
   text-align: start;
 }
@@ -159,6 +167,15 @@
 
 .docsButton:hover {
   cursor: pointer;
+}
+
+.arrowButton:hover {
+  cursor: pointer;
+  
+}
+
+.arrowButton:hover path {
+  stroke: #3BD795;
 }
 
 .leftMenuItem {
@@ -194,11 +211,21 @@
 }
 
 .slaid {
-  
+  border-radius: 20px;
+  overflow: hidden;
   transform: translateY(50px);
   /* background-color: black; */
   width: 522px;
   height: 301px;
+}
+
+.slaidnext {
+  margin-top: 20vh;
+  /* background-color: black; */
+  width: 522px;
+  height: 301px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 
 .slaidHide {
@@ -206,6 +233,8 @@
 }
 
 .slaidAnim {
+  border-radius: 20px;
+  overflow: hidden;
   transform: translateY(50px);
   /* background-color: black; */
   width: 522px;
@@ -222,4 +251,44 @@
   100% {
     transform: translateY(50px);
   }
+}
+
+/* mobile */
+
+.buttonConnectWalletM {
+  background-color: #3BD795;
+  height: 6vh;
+  width: 25vw;
+  border-radius: 30px;
+}
+
+.buttonCarouselM {
+  background-color: transparent;
+  border: none;
+}
+
+.slaidM {
+  
+  height: 25vh;
+}
+
+.imgslaidM {
+  width: 45vh;
+  height: 25vh;
+}
+
+.ww {
+  word-wrap:normal;
+}
+
+.nextSlaid {
+  position: absolute;
+  top: 4vh;
+  left: 90vw;
+}
+
+.logoImgM {
+  z-index: 10;
+  width: 8vmax;
+  height: 8vmax;
 }
