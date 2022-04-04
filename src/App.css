@@ -191,11 +191,30 @@
   cursor: pointer;
 }
 
+.border-grey {
+  border: solid 1px #4a544d;
+}
+
+
+.border-green {
+  border: solid 1px #3BD795;
+  color:rgb(112, 76, 182)
+}
+
 .input-social {
-  border-color: #3BD795;
+  /* border-color: #707875; */
+  
   background: transparent;
   border-radius: 5px;
   color:aliceblue;
+}
+
+.input-social:focus {
+  border: solid 1px #3BD795;
+}
+
+input {
+  outline: none;
 }
 
 .h-10 {
@@ -210,21 +229,31 @@
   height: 5vh;
 }
 
+.h-6h {
+  height: 6vh;
+}
+
+.ms-minus {
+  margin-left: -3vw;
+}
+
 .slaid {
   border-radius: 20px;
   overflow: hidden;
   transform: translateY(50px);
-  /* background-color: black; */
-  width: 522px;
-  height: 301px;
+  width: 35vw;
+  height: 20vw;
+  /* width: 522px;
+  height: 301px; */
 }
 
 .slaidnext {
   margin-top: 20vh;
-  /* background-color: black; */
-  width: 522px;
-  height: 301px;
-  border-radius: 20px;
+  width: 35vw;
+  height: 20vw;
+  /* width: 522px;
+  height: 301px; */
+  /* border-radius: 20px; */
   overflow: hidden;
 }
 
@@ -236,9 +265,10 @@
   border-radius: 20px;
   overflow: hidden;
   transform: translateY(50px);
-  /* background-color: black; */
-  width: 522px;
-  height: 301px;
+  width: 35vw;
+  height: 20vw;
+  /* width: 522px; */
+  /* height: 301px; */
   animation-name: slaidShow;
   animation-duration: 0.5s;
 }
@@ -270,6 +300,7 @@
 .slaidM {
   
   height: 25vh;
+  width: 90vw;
 }
 
 .imgslaidM {
@@ -291,4 +322,23 @@
   z-index: 10;
   width: 8vmax;
   height: 8vmax;
+}
+
+.buttonCarouselAinm {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+    /* visibility: visible; */
+  }
+  20% {
+    opacity: 0;
+    /* visibility: hidden; */
+  }
+  100% {
+    opacity: 1;
+  }
 }
