@@ -534,7 +534,7 @@ function App() {
         ): null}
 
         {isMobile ? (
-          <div className='p-0 m-0 ps-1 pe-4 mt-4'>
+          <div className='p-0 m-0 ps-1 pe-4 mt-1'>
             <p className='text-start white fsize-4 m-0 p-0 ms-2 f-barlow-700'>Join to whitelist</p>
             <p className='text-start white fsize-2 m-0 p-0 ms-2 f-barlow-400'>Subscribe to our social</p>
 
