@@ -22,6 +22,7 @@ function App() {
   
   const [isMobile, setIsMobile] = useState(false)
   const [isOrientaionH, setIsOrientaionH] = useState(false)
+  const [widthH, setWidthH] = useState(0)
   const MobileWidth = 1000
   const arrMenuItemSlaids = ['Limex', 'Decentralized Orderbook', 'About Limex', 'How Limex make money', 'New Crypto something']
   const [curMenuItemM, setcurMenuItemM] = useState(0)
@@ -32,6 +33,7 @@ function App() {
   const [twNick, setTwNick] = useState('')
   const [rtwNick, setRtwNick] = useState('')
   const [dscNick, setDscNick] = useState('')
+
   
 
   let CurrentSlaid = 'slaid0'
@@ -304,6 +306,7 @@ function App() {
   useEffect(() => {
     let h = window.innerHeight
     let w = window.innerWidth
+    setWidthH(w)
     console.log(w/h)
     if (w/h > 1 && h < 600) {
       setIsMobile(false)
@@ -315,7 +318,7 @@ function App() {
     }
   })
   return (
-    <div className={isMobile ? "AppM": isOrientaionH ? 'AppH': "App"}>
+    <div className={isMobile ? "AppM": isOrientaionH ? 'AppH': "App"} style={isOrientaionH ? {width: widthH.toString() + 'px'}: null}>
 
       {/* bg video */}
       <video autoPlay muted loop className="bgVideo">
