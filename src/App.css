@@ -7,7 +7,14 @@
   overflow: hidden;
 }
 
-
+.AppH {
+  text-align: center;
+  height: 80vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* margin-top: -20px; */
+  overflow: hidden;
+}
 
 .AppM {
   text-align: center;
