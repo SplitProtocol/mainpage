@@ -378,11 +378,11 @@ function App() {
       
 
       {/* body */}
-      <div className={isMobile ? ('mt-3'): isOrientaionH ? 'row mt-1': 'row mt-5'}>
+      <div className={isMobile ? ('mt-3'): isOrientaionH ? 'row mt-0': 'row mt-5'}>
 
         {/* left menu */}
         {isMobile ? null: (
-          <div className={isOrientaionH ? 'col-2 ms-5 mt-3': 'col-2 ms-5 mt-5'}>
+          <div className={isOrientaionH ? 'col-2 ms-5 mt-1': 'col-2 ms-5 mt-5'}>
 
             {/* arrowtop */}
             <div className='w-50'>
