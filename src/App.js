@@ -10,7 +10,7 @@ import slaid1 from './static/1.jpg'
 import slaid2 from './static/2.jpg'
 import slaid3 from './static/3.jpg'
 import slaid4 from './static/4.jpg'
-import slaid0 from './static/0.jpg'
+import slaid0 from './static/0.png'
 
 import { MobForm} from './features/mobForm/mobform';
 import { MobFormH } from './features/mobForm/mobformH';
@@ -156,7 +156,6 @@ function App() {
   useEffect(() => {
     if (isMobile) {
       var myCarousel = document.getElementById('myCarousel')
-
       myCarousel.addEventListener('slide.bs.carousel', function (e) {
         document.getElementById('buttonMenuM1').classList.add('buttonCarouselAinm')
         setTimeout(() => {document.getElementById('buttonMenuM1').classList.remove('buttonCarouselAinm')}, 1000)
@@ -511,7 +510,7 @@ function App() {
         {/* mobilebody */}
         {isMobile ? (
           <>
-          <div id="myCarousel" class="carousel slide " data-bs-interval="false" data-bs-touch="true">
+          <div id="myCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="true">
             <div className='row p-0 m-0 d-flex justify-content-between'>
               <button 
                 className='buttonCarouselM col-6 d-flex justify-content-center p-0 m-0 ps-2'
@@ -570,7 +569,7 @@ function App() {
             </div>
             
           </div>
-        </>
+          </>
         ): null}
 
         {isMobile ? (
