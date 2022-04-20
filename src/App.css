@@ -153,6 +153,10 @@
   font-size: 1vmax;
 }
 
+.fsize-4h {
+  font-size: 4vh;
+}
+
 .fsize-3h {
   font-size: 3vh;
 }

@@ -12,7 +12,8 @@ import slaid3 from './static/3.jpg'
 import slaid4 from './static/4.jpg'
 import slaid0 from './static/0.jpg'
 
-import { MobForm } from './features/mobForm/mobform';
+import { MobForm} from './features/mobForm/mobform';
+import { MobFormH } from './features/mobForm/mobformH';
 
 import './App.css';
 
@@ -395,13 +396,13 @@ function App() {
               </svg>
             </div>
             {/* item 1 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-2': 'd-flex flex-column leftMenuButton mt-5'} 
+            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1': 'd-flex flex-column leftMenuButton mt-5'} 
               onClick={() => {
                 setMenuItemSelect('item0')
                 hideCurrentSlaid(CurrentSlaid)
                 setSlaid('slaid0')}}
             >
-              <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-2': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
+              <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
                   id='item0'
               >
                   {'Limex'}
@@ -409,7 +410,7 @@ function App() {
             </div>
 
             {/* item 2 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-2 fsize-2': 'd-flex flex-column leftMenuButton mt-4'} 
+            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'} 
               onClick={() => {
                 setMenuItemSelect('_item1')
                 hideCurrentSlaid(CurrentSlaid)
@@ -420,7 +421,7 @@ function App() {
             
             {/* item 3 */}
             <div 
-              className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-3 fsize-2': 'd-flex flex-column leftMenuButton mt-4'}  
+              className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'}  
               onClick={() => {
                 setMenuItemSelect('item2')
                 hideCurrentSlaid(CurrentSlaid)
@@ -431,7 +432,7 @@ function App() {
             </div>
 
             {/* item 4 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-3 fsize-2': 'd-flex flex-column leftMenuButton mt-4'} 
+            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'} 
               onClick={() => {
                 setMenuItemSelect('_item3')
                 hideCurrentSlaid(CurrentSlaid)
@@ -442,7 +443,7 @@ function App() {
             </div>
             
             {/* item 5 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-2 fsize-2': 'd-flex flex-column leftMenuButton mt-4'}
+            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'}
               onClick={() => {
                 setMenuItemSelect('_item4')
                 hideCurrentSlaid(CurrentSlaid)
@@ -707,7 +708,7 @@ function App() {
         {!isMobile && isOrientaionH ?
           (
             <div className='col-4'>
-              <MobForm/>
+              <MobFormH/>
             </div>
           ):null
         }
