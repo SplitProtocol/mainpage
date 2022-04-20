@@ -318,7 +318,7 @@ function App() {
     }
   })
   return (
-    <div className={isMobile ? "AppM": isOrientaionH ? 'AppH': "App"} style={isOrientaionH ? {width: widthH.toString() + 'px'}: null}>
+    <div className={isMobile ? "AppM": isOrientaionH ? 'AppH': "App"} >
 
       {/* bg video */}
       <video autoPlay muted loop className="bgVideo">

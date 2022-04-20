@@ -10,7 +10,7 @@
 .AppH {
   text-align: center;
   height: 85vh;
-  width: 100vw;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   /* margin-top: -20px; */
   overflow: hidden;
