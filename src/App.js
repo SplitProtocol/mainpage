@@ -387,7 +387,7 @@ function App() {
           <div className={isOrientaionH ? 'col-2 ms-5 mt-1': 'col-2 ms-5 mt-5'}>
 
             {/* arrowtop */}
-            <div className='w-50'>
+            {!isOrientaionH ? (<div className='w-50'>
               <svg className='arrowButton' width="29" height="17" viewBox="0 0 29 17" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowTop()
@@ -395,7 +395,7 @@ function App() {
               >
                 <path d="M1 15.5L14.5 2L28 15.5" stroke="white" stroke-width="2"/>
               </svg>
-            </div>
+            </div>) : null}
             {/* item 1 */}
             <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1': 'd-flex flex-column leftMenuButton mt-5'} 
               onClick={() => {
@@ -455,7 +455,7 @@ function App() {
             </div>
 
             {/* arrow down */}
-            <div className={isOrientaionH ? 'w-50 mt-2': 'w-50 mt-5'}>
+            {!isOrientaionH ? (<div className={isOrientaionH ? 'w-50 mt-2': 'w-50 mt-5'}>
               <svg className='arrowButton' width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowDown()
@@ -463,7 +463,7 @@ function App() {
               >
                 <path d="M1 1L14.5 14.5L28 1" stroke="white" stroke-width="2"/>
               </svg>
-            </div>
+            </div>): null}
 
           </div> 
         )}
