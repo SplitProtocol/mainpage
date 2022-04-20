@@ -315,7 +315,7 @@ function App() {
     }
   })
   return (
-    <div className={isMobile  ? "AppM": "App"}>
+    <div className={isMobile || isOrientaionH ? "AppM": "App"}>
 
       {/* bg video */}
       <video autoPlay muted loop className="bgVideo">
