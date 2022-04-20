@@ -299,8 +299,22 @@ function App() {
       
     })
   })
+
+  useEffect(() => {
+    let h = window.innerHeight
+    let w = window.innerWidth
+    console.log(w/h)
+    if (w/h > 1 && h < 600) {
+      setIsMobile(false)
+      setIsOrientaionH(true)
+    }
+    else {
+      setIsMobile(window.innerWidth < 1000)
+      setIsOrientaionH(false)
+    }
+  })
   return (
-    <div className={isMobile ? "AppM": "App"}>
+    <div className={isMobile  ? "AppM": "App"}>
 
       {/* bg video */}
       <video autoPlay muted loop className="bgVideo">
