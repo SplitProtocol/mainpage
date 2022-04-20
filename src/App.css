@@ -7,6 +7,15 @@
   overflow: hidden;
 }
 
+.AppM {
+  text-align: center;
+  height: 100%;
+  width: 100vw;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* margin-top: -20px; */
+  overflow: hidden;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -55,6 +64,16 @@
   z-index: -1;
 }
 
+.bgBlack {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100vmax;
+  height: 100vmax;
+  z-index: -1;
+}
+
 .logoImg {
   z-index: 10;
   width: 6vmax;
@@ -68,6 +87,10 @@
 
 .white {
   color: white;
+}
+
+.whitegrey {
+  color: #FFF9F9;
 }
 
 .f-glory {
@@ -152,6 +175,14 @@
 }
 .buttonConnectWallet:hover {
   cursor: pointer;
+}
+
+.buttonSocial {
+  background: transparent;
+  height: 6vh;
+  width: 10vw;
+  border-radius: 30px;
+  border: solid 2px #3BD795
 }
 
 .buttonJoin {
@@ -300,11 +331,11 @@ input {
 .slaidM {
   
   height: 25vh;
-  width: 90vw;
+  width: 85vw;
 }
 
 .imgslaidM {
-  width: 45vh;
+  width: 70vw;
   height: 25vh;
 }
 
