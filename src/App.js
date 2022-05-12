@@ -439,7 +439,7 @@ function App() {
 
             {/* MENU ITEMS */}
 
-            <div className='h-menu overflow-hidden mt-4 mb-4'>
+            <div className={isOrientaionH ? 'h-menuH overflow-auto mb-4 position-menuH': 'h-menu overflow-hidden mt-4 mb-4'}>
               <div id='menu' className='position-relative'>
                 {/* item 1 */}
                 <div id={1} 
@@ -815,70 +815,142 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Track best dealer and</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">copy their trades</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">With most innovative trading tools</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Dont need Gas token</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">in wallet</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">Pay in any asset and get cashbacks</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Make an arbitrage</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">profit</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">At each transaction causing</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">an arb-opportunity</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">The most functional</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">trading terminal</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">With Limit, Take Profit, Stop Loss</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">and Trailling Stop orders</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Seamless Cross-</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Chain</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">From Any to Any asset per one transaction</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Decentralize protocol</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Get revenue</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">Become a Protocol Relayer and participate</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">in the execution of trades</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">MEV protection in any</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">chain</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">Add our RPC to Metamask to catch</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">arbs from multiple DEXes</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Grouping minor</p>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">orders</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">No more waiting for a long execution</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">of a small order</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
                   <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Get best price</p>
                   <p className="fsize-2 text-start f-barlow-400 white mt-2">With liquidity aggregation from multiple DEXes</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

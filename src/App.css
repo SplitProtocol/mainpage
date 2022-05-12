@@ -289,6 +289,15 @@ input {
   height: 40vh;
 }
 
+.h-menuH {
+  height: 90vh;
+}
+
+.position-menuH {
+  position: absolute;
+  top: 5vh;
+}
+
 .bg-slaid {
   background: rgba(60, 60, 60, 0.4);
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
@@ -363,6 +372,13 @@ input {
   border-radius: 10px;
 }
 
+.buttonConnectWalletH {
+  background-color: #EE9919;
+  height: 5vh;
+  width: 30vw;
+  border-radius: 10px;
+}
+
 .buttonCarouselM {
   background-color: transparent;
   border: none;
@@ -385,9 +401,9 @@ input {
 
 .nextSlaid {
   position: absolute;
-  top: 4vh;
-  left: 90vw;
-  height: 23vh;
+  top: 3vh;
+  left: 95vw;
+  height: 25vh;
   width: 25vw;
 }
 
