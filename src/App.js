@@ -24,7 +24,18 @@ function App() {
   const [isOrientaionH, setIsOrientaionH] = useState(false)
   const [widthH, setWidthH] = useState(0)
   const MobileWidth = 1000
-  const arrMenuItemSlaids = ['Limex', 'Decentralized Orderbook', 'About Limex', 'How Limex make money', 'New Crypto something']
+  const arrMenuItemSlaids = [
+    'Split',
+    'Auto Trading Tools',
+    'Gasless Trade',
+    'Swap 2 Earn',
+    'Limit Orders',
+    'Cross-Chain',
+    'Split Relayer',
+    'Split RPC',
+    'Bundling',
+    'Aggregation'
+  ]
   const [curMenuItemM, setcurMenuItemM] = useState(0)
   const [nextMenuItemM, setnextMenuItemM] = useState(1)
   const [slaidNext, setslaidNext] = useState(slaid1)
@@ -38,6 +49,68 @@ function App() {
 
   let CurrentSlaid = 'slaid0'
   let CurentMenuItem = 'item0'
+  let SelectedMenuItem = 1
+  let placeMenuItem = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+  function setSelectedMenuItem(n) {
+    SelectedMenuItem = placeMenuItem.indexOf(n) + 1
+  }
+
+  function moveMenuDown() {
+    for (let i=0; i<5; i++) {
+      let n = placeMenuItem[i]
+      let num = (i+1).toString()
+      let nextnum = (i+2).toString()
+      
+      let item = document.getElementById(n)
+        item.classList.add('moved' + num)
+        setTimeout(() => {
+          item.classList.remove('item' + num)
+          item.classList.remove('moved' + num)
+          item.classList.add('item' + nextnum)
+        }, 400)
+    }
+    let item = document.getElementById(placeMenuItem[9])
+    item.classList.add('moved6')
+        setTimeout(() => {
+          item.classList.remove('item6')
+          item.classList.remove('moved6')
+          item.classList.add('item1')
+        }, 400)
+    // shiftleft
+    let buf = placeMenuItem[9]
+    for (let i=9; i>0; i--) {
+      placeMenuItem[i] = placeMenuItem[i - 1]
+    }    
+    placeMenuItem[0] = buf  
+    console.log('placeMenuItem', placeMenuItem)  
+  }
+
+  function moveMenuUp() {
+    for (let i=0; i<6; i++) {
+      let n = placeMenuItem[i]
+      let num = (i+1).toString()
+      let nextnum = (i).toString()
+      if (i == 0) {
+        nextnum = '6'
+      }
+      
+      let item = document.getElementById(n)
+        item.classList.add('move' + num)
+        setTimeout(() => {
+          item.classList.remove('item' + num)
+          item.classList.remove('move' + num)
+          item.classList.add('item' + nextnum)
+        }, 400)
+    }
+    // shiftleft
+    let buf = placeMenuItem[0]
+    for (let i=0; i<9; i++) {
+      placeMenuItem[i] = placeMenuItem[i + 1]
+    }    
+    placeMenuItem[9] = buf  
+    console.log('placeMenuItem', placeMenuItem)  
+  }
 
   function refreshSlaidNext(numSlaid) {
       let imgslaid = document.getElementById('imgslaidnext')
@@ -60,73 +133,85 @@ function App() {
 
   function setSlaid(slaid) {
     
-    refreshSlaidNext(slaid.slice(-1))
+    // refreshSlaidNext(slaid.slice(-1))
     document.getElementById(slaid).className = 'slaid'
-    document.getElementById(slaid).className = 'slaidAnim'
+    document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
 
     CurrentSlaid = slaid
   }
 
   function clickArrowTop() {
-    hideCurrentSlaid()
-    let curNumSlaid = CurrentSlaid.slice(-1)
-    let sld = 'slaid0'
-    if (curNumSlaid == '0') {
-      sld = 'slaid4'
-      setMenuItemSelect('_item4')
+    console.log('cur', SelectedMenuItem)
+    if (SelectedMenuItem == 1) {
+      console.log('up')
+      moveMenuDown()
     }
-    else if (curNumSlaid == '1') {
-      sld = 'slaid0'
-      setMenuItemSelect('item0')
-    }
-    else if (curNumSlaid == '2') {
-      sld = 'slaid1'
-      setMenuItemSelect('_item1')
-    }
-    else if (curNumSlaid == '3') {
-      sld = 'slaid2'
-      setMenuItemSelect('item2')
-    }
-    else if (curNumSlaid == '4') {
-      sld = 'slaid3'
-      setMenuItemSelect('_item3')
+    else {
+      SelectedMenuItem -= 1
     }
 
-    refreshSlaidNext(sld.slice(-1))
-    document.getElementById(sld).className = 'slaid'
-    document.getElementById(sld).className = 'slaidAnim'
-    CurrentSlaid = sld
+    hideCurrentSlaid()
+    let curNumSlaid = CurrentSlaid.slice(-1)
+
+    let num_slaid = parseInt(curNumSlaid)
+    let next_num_slaid = num_slaid - 1
+    if (next_num_slaid == -1) {next_num_slaid = 9}
+
+    let sld = 'slaid9'
+    if (num_slaid != 0) {
+      sld = 'slaid' + next_num_slaid.toString()
+    }
+    
+    if (curNumSlaid == '2') {
+      setMenuItemSelect('_item1')
+    }
+    else {
+      setMenuItemSelect('item' + next_num_slaid.toString())
+    }
+
+    // refreshSlaidNext(sld.slice(-1))
+    // document.getElementById(sld).className = 'slaid'
+    // document.getElementById(sld).className = 'slaidAnim bg-slaid'
+    // CurrentSlaid = sld
+    setSlaid(sld)
   }
 
   function clickArrowDown() {
+    console.log('cur', SelectedMenuItem)
+    if (SelectedMenuItem == 5) {
+      console.log('down')
+      moveMenuUp()
+    }
+    else {
+      SelectedMenuItem += 1
+    }
+
     hideCurrentSlaid()
     let curNumSlaid = CurrentSlaid.slice(-1)
-    
+
+    let num_slaid = parseInt(curNumSlaid)
+    let next_num_slaid = num_slaid + 1
+    if (next_num_slaid == 10) {next_num_slaid = 0}
+
     let sld = 'slaid0'
+    if (num_slaid != 9) {
+      sld = 'slaid' + next_num_slaid.toString()
+    }
+    
     if (curNumSlaid == '0') {
-      sld = 'slaid1'
       setMenuItemSelect('_item1')
     }
-    else if (curNumSlaid == '1') {
-      sld = 'slaid2'
-      setMenuItemSelect('item2')
+    else {
+
+      setMenuItemSelect('item' + next_num_slaid.toString())
     }
-    else if (curNumSlaid == '2') {
-      sld = 'slaid3'
-      setMenuItemSelect('_item3')
-    }
-    else if (curNumSlaid == '3') {
-      sld = 'slaid4'
-      setMenuItemSelect('_item4')
-    }
-    else if (curNumSlaid == '4') {
-      sld = 'slaid0'
-      setMenuItemSelect('item0')
-    }
-    refreshSlaidNext(sld.slice(-1))
-    document.getElementById(sld).className = 'slaid'
-    document.getElementById(sld).className = 'slaidAnim'
-    CurrentSlaid = sld
+
+    // refreshSlaidNext(sld.slice(-1))
+
+    // document.getElementById(sld).className = 'slaid'
+    // document.getElementById(sld).className = 'slaidAnim bg-slaid'
+    // CurrentSlaid = sld
+    setSlaid(sld)
   }
 
   function setMenuItemSelect(itemMenu) {
@@ -162,17 +247,17 @@ function App() {
         document.getElementById('buttonMenuM2').classList.add('buttonCarouselAinm')
         setTimeout(() => {document.getElementById('buttonMenuM2').classList.remove('buttonCarouselAinm')}, 1000)
 
-        document.getElementById('nextSlaid').style.display = 'none'
+        document.getElementById('nextM').style.display = 'none'
         console.log(e.from, e.direction)
         setTimeout(() => {
           if (e.direction == 'left') {
-            if (e.from == 4) {
+            if (e.from == 9) {
               setcurMenuItemM(0)
               setnextMenuItemM(1)
             }
             else {
               setcurMenuItemM(e.from + 1)
-              if (e.from + 1 == 4) {
+              if (e.from + 1 == 9) {
                 setnextMenuItemM(0)
               } 
               else {
@@ -183,7 +268,7 @@ function App() {
           else
           {
             if (e.from == 0) {
-              setcurMenuItemM(4)
+              setcurMenuItemM(9)
               setnextMenuItemM(0)
             }
             else {
@@ -196,94 +281,46 @@ function App() {
 
       myCarousel.addEventListener('slid.bs.carousel', function (e) {
         
-        document.getElementById('nextSlaid').style.display = 'block'
-        if (e.direction == 'left') {
-          if (e.from == 4) {
-            document.getElementById('nextSlaid').src = slaid1
-          }
-          else {
-            setcurMenuItemM(e.from + 1)
-            if (e.from + 1 == 4) {
-              document.getElementById('nextSlaid').src = slaid0
-            } 
-            else {
-              if (e.from == 1) {
-                document.getElementById('nextSlaid').src = slaid3
-              }
-              else if (e.from == 2) {
-                document.getElementById('nextSlaid').src = slaid4
-              }
-              else if (e.from == 0) {
-                document.getElementById('nextSlaid').src = slaid2
-              }
-            }
-          }
-        }
-        else
-        {
-          if (e.from == 0) {
-            setcurMenuItemM(4)
-            setnextMenuItemM(0)
-          }
-          else {
-            setcurMenuItemM(e.from - 1)
-            setnextMenuItemM(e.from)
-          }
-        }
+        document.getElementById('nextM').style.display = 'block'
+        // if (e.direction == 'left') {
+        //   if (e.from == 4) {
+        //     document.getElementById('nextSlaid').src = slaid1
+        //   }
+        //   else {
+        //     setcurMenuItemM(e.from + 1)
+        //     if (e.from + 1 == 4) {
+        //       document.getElementById('nextSlaid').src = slaid0
+        //     } 
+        //     else {
+        //       if (e.from == 1) {
+        //         document.getElementById('nextSlaid').src = slaid3
+        //       }
+        //       else if (e.from == 2) {
+        //         document.getElementById('nextSlaid').src = slaid4
+        //       }
+        //       else if (e.from == 0) {
+        //         document.getElementById('nextSlaid').src = slaid2
+        //       }
+        //     }
+        //   }
+        // }
+        // else
+        // {
+        //   if (e.from == 0) {
+        //     setcurMenuItemM(9)
+        //     setnextMenuItemM(0)
+        //   }
+        //   else {
+        //     setcurMenuItemM(e.from - 1)
+        //     setnextMenuItemM(e.from)
+        //   }
+        // }
 
       })
 
     }
     
   }, [isMobile])
-
-  // useEffect(() => {
-  //   if (tgNick != '') {
-  //     document.getElementById('tgnick').classList.remove('border-grey')
-  //     document.getElementById('tgnick').classList.add('border-green')
-  //   }
-  //   else {
-  //     document.getElementById('tgnick').classList.remove('border-green')
-  //     document.getElementById('tgnick').classList.add('border-grey')      
-  //   }
-    
-  // }, [tgNick])
-
-  // useEffect(() => {
-  //   if (twNick != '') {
-  //     document.getElementById('twnick').classList.remove('border-grey')
-  //     document.getElementById('twnick').classList.add('border-green')
-  //   }
-  //   else {
-  //     document.getElementById('twnick').classList.remove('border-green')
-  //     document.getElementById('twnick').classList.add('border-grey')      
-  //   }
-    
-  // }, [twNick])
-
-  // useEffect(() => {
-  //   if (rtwNick != '') {
-  //     document.getElementById('rtwnick').classList.remove('border-grey')
-  //     document.getElementById('rtwnick').classList.add('border-green')
-  //   }
-  //   else {
-  //     document.getElementById('rtwnick').classList.remove('border-green')
-  //     document.getElementById('rtwnick').classList.add('border-grey')      
-  //   }
-    
-  // }, [rtwNick])
-
-  // useEffect(() => {
-  //   if (dscNick != '') {
-  //     document.getElementById('dscnick').classList.remove('border-grey')
-  //     document.getElementById('dscnick').classList.add('border-green')
-  //   }
-  //   else {
-  //     document.getElementById('dscnick').classList.remove('border-green')
-  //     document.getElementById('dscnick').classList.add('border-grey')      
-  //   }
-    
-  // }, [dscNick])
 
   useEffect(() => {
     window.addEventListener("resize", () => {
@@ -316,6 +353,7 @@ function App() {
       setIsOrientaionH(false)
     }
   })
+
   return (
     <div className={isMobile ? "AppM": isOrientaionH ? 'AppH': "App"} >
 
@@ -336,11 +374,11 @@ function App() {
         <div 
           className={isMobile ? ('col-1 p-0 m-0 ms-3'): 
                                 ('col-1 d-flex justify-content-end p-0 m-0')}>
-          <img className={isMobile ? ('logoImgM'): ('logoImg')} src={logoImg} />
+          {/* <img className={isMobile ? ('logoImgM'): ('logoImg')} src={logoImg} /> */}
         </div>  
 
         {isMobile ? null: (
-          <p className='f-righteous-400 white col-2 m-0 p-0 mt-2 fsize-3 ta-s'>{'Limex'}</p>
+          <p className='f-righteous-400 white col-2 m-0 p-0 mt-2 fsize-3 ta-s'>{''}</p>
         )}
 
         <div className={isMobile ? 
@@ -398,62 +436,154 @@ function App() {
                 <path d="M1 15.5L14.5 2L28 15.5" stroke="white" stroke-width="2"/>
               </svg>
             </div>) : null}
-            {/* item 1 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1': 'd-flex flex-column leftMenuButton mt-5'} 
-              onClick={() => {
-                setMenuItemSelect('item0')
-                hideCurrentSlaid(CurrentSlaid)
-                setSlaid('slaid0')}}
-            >
-              <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
-                  id='item0'
-              >
-                  {'Limex'}
-              </p>
-            </div>
 
-            {/* item 2 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'} 
-              onClick={() => {
-                setMenuItemSelect('_item1')
-                hideCurrentSlaid(CurrentSlaid)
-                setSlaid('slaid1')}}>
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item1'>Decentralized</p>
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item10'>Orderbook</p>
-            </div>
-            
-            {/* item 3 */}
-            <div 
-              className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'}  
-              onClick={() => {
-                setMenuItemSelect('item2')
-                hideCurrentSlaid(CurrentSlaid)
-                setSlaid('slaid2')
-              }}
-            >
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item2'>{'About Limex'} </p>
-            </div>
+            {/* MENU ITEMS */}
 
-            {/* item 4 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'} 
-              onClick={() => {
-                setMenuItemSelect('_item3')
-                hideCurrentSlaid(CurrentSlaid)
-                setSlaid('slaid3')}}
-            >
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item3'>{'How Limex'}</p>
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item30'>{'make money'}</p>
-            </div>
-            
-            {/* item 5 */}
-            <div className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton mt-4'}
-              onClick={() => {
-                setMenuItemSelect('_item4')
-                hideCurrentSlaid(CurrentSlaid)
-                setSlaid('slaid4')}}
-            >
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item4'>{'New Crypto'}</p>
-              <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p>
+            <div className='h-100 overflow-hidden my-4'>
+              <div id='menu' className='position-relative'>
+                {/* item 1 */}
+                <div id={1} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1': 'd-flex flex-column leftMenuButton item1'} 
+                  onClick={() => {
+                    setMenuItemSelect('item0')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid0')
+                    setSelectedMenuItem(1)
+                  }}
+                >
+                  <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
+                      id='item0'
+                  >
+                      {'Split'}
+                  </p>
+                </div>
+
+                {/* item 2 */}
+                <div id={2} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item2'} 
+                  onClick={() => {
+                    setMenuItemSelect('_item1')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid1')
+                    setSelectedMenuItem(2)
+                  }}>
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item1'>Auto Trading</p>
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item10'>Tools</p>
+                </div>
+                
+                {/* item 3 */}
+                <div 
+                  id={3}
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item3'}  
+                  onClick={() => {
+                    setMenuItemSelect('item2')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid2')
+                    setSelectedMenuItem(3)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item2'>{'Gasless Trade'} </p>
+                </div>
+
+                {/* item 4 */}
+                <div id={4} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item4'} 
+                  onClick={() => {
+                    setMenuItemSelect('item3')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid3')
+                    setSelectedMenuItem(4)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item3'>{'Swap 2 Earn'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item30'>{'make money'}</p> */}
+                </div>
+                
+                {/* item 5 */}
+                <div id={5} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item5'}
+                  onClick={() => {
+                    setMenuItemSelect('item4')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid4')
+                    setSelectedMenuItem(5)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item4'>{'Limit Orders'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+                {/* item 6 */}
+                <div id={6} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item6'}
+                  onClick={() => {
+                    setMenuItemSelect('item5')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid5')
+                    setSelectedMenuItem(6)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item5'>{'Cross-Chain'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+                {/* item 7 */}
+                <div id={7} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item6'}
+                  onClick={() => {
+                    setMenuItemSelect('item6')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid6')
+                    setSelectedMenuItem(7)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item6'>{'Split Relayer'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+                {/* item 8 */}
+                <div id={8} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item6'}
+                  onClick={() => {
+                    setMenuItemSelect('item7')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid7')
+                    setSelectedMenuItem(8)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item7'>{'Split RPC'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+                {/* item 9 */}
+                <div id={9} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item6'}
+                  onClick={() => {
+                    setMenuItemSelect('item8')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid8')
+                    setSelectedMenuItem(9)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item8'>{'Bundling'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+                {/* item 10 */}
+                <div id={10} 
+                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h': 'd-flex flex-column leftMenuButton item6'}
+                  onClick={() => {
+                    setMenuItemSelect('item9')
+                    hideCurrentSlaid(CurrentSlaid)
+                    setSlaid('slaid9')
+                    setSelectedMenuItem(10)
+                  }}
+                >
+                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item9'>{'Aggregation'}</p>
+                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                </div>
+
+              </div>
             </div>
 
             {/* arrow down */}
@@ -471,7 +601,7 @@ function App() {
         )}
 
         {isMobile ? null: (
-        <div className='col-5'>
+        <div className='col-5 p-0'>
           {/* slaid0 */}
           <div className='slaid' id='slaid0'>
             <p className="fsize-4 text-start f-glory white m-0 p-0">Multi-Chain arbitrage</p>
@@ -481,29 +611,168 @@ function App() {
 
           {/* slaid1 */}
           <div className='slaidHide' id='slaid1'>
-            <img className='rounded w-100' src={slaid1} />
+            {/* <img className='rounded w-100' src={slaid1} /> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Track best dealer and</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">copy their trades</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With most innovative trading tools</p> 
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p> 
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
           </div>
           
           {/* slaid2 */}
           <div className='slaidHide' id='slaid2'>
-            <img className='rounded w-100' src={slaid2} />
+            {/* <img className='rounded w-100' src={slaid2} /> */}
+            
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Dont need Gas token</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">in wallet</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Pay in any asset and get cashbacks</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2 h-10p"> </p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* slaid3 */}
           <div className='slaidHide' id='slaid3'>
-            <img className='rounded w-100' src={slaid3} />
+            {/* <img className='rounded w-100' src={slaid3} /> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Make an arbitrage</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">profit</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">At each transaction causing</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">an arb-opportunity</p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* slaid4 */}
           <div className='slaidHide' id='slaid4'>
-            <img className='rounded w-100' src={slaid4} />
+            {/* <img className='rounded w-100' src={slaid4} /> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">The most functional</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">trading terminal</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With Limit, Take Profit, Stop Loss</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">and Trailling Stop orders</p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* slaid5 */}
+          <div className='slaidHide' id='slaid5'>
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Seamless Cross-</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">Chain</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">From Any to Any asset per one transaction</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* slaid6 */}
+          <div className='slaidHide' id='slaid6'>
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Decentralize protocol</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">Get revenue</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Become a Protocol Relayer and participate</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">in the execution of trades</p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* slaid7 */}
+          <div className='slaidHide' id='slaid7'>
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">MEV protection in any</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">chain</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Add our RPC to Metamask to catch</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">arbs from multiple DEXes</p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* slaid8 */}
+          <div className='slaidHide' id='slaid8'>
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Grouping minor</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">orders</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">No more waiting for a long execution</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">of a small order</p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* slaid9 */}
+          <div className='slaidHide' id='slaid9'>
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Get best price</p>
+            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap h-1"> </p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With liquidity aggregation from multiple DEXes</p>
+            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p>
+            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                <p 
+                  className='p-0 m-0 f-roboto-400'>
+                  {'Learn more'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* nextSlaid */}
-          <div className='slaidnext'>
-            <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/>
-          </div>
-        </div>)}
+          {/* <div className='slaidnext'> */}
+            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+            {/* <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Seamless Cross-</p>
+            <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Chain</p>
+            <p className="fsize-2 text-start f-barlow-400 white mt-2">From Any to Any asset per one transaction</p>
+          </div> */}
+
+        </div>)
+      }
 
         
 
@@ -535,8 +804,7 @@ function App() {
 
             <div class="carousel-inner position-relative">
 
-              <div className='nextSlaid' >
-                <img className='imgslaidM' id='nextSlaid' src={slaid1} />
+              <div className='nextSlaid bg-slaidM' id='nextM'>
               </div>
 
               <div class="carousel-item active" data-bs-interval="10000">
@@ -547,23 +815,70 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='d-flex align-items-center justify-content-start mt-4 ms-4' id='slaid1'>
-                  <img className='imgslaidM' src={slaid1} />
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Track best dealer and</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">copy their trades</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With most innovative trading tools</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='d-flex align-items-center justify-content-start mt-4 ms-4' id='slaid1'>
-                  <img className='imgslaidM' src={slaid2} />
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Dont need Gas token</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">in wallet</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Pay in any asset and get cashbacks</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='d-flex align-items-center justify-content-start mt-4 ms-4' id='slaid1'>
-                  <img className='imgslaidM' src={slaid3} />
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Make an arbitrage</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">profit</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">At each transaction causing</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">an arb-opportunity</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='d-flex align-items-center justify-content-start mt-4 ms-4' id='slaid1'>
-                  <img className='imgslaidM' src={slaid1} />
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">The most functional</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">trading terminal</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With Limit, Take Profit, Stop Loss</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">and Trailling Stop orders</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Seamless Cross-</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Chain</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">From Any to Any asset per one transaction</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Decentralize protocol</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Get revenue</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Become a Protocol Relayer and participate</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">in the execution of trades</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">MEV protection in any</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">chain</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Add our RPC to Metamask to catch</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">arbs from multiple DEXes</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Grouping minor</p>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">orders</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">No more waiting for a long execution</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">of a small order</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4' id='slaid1'>
+                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Get best price</p>
+                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With liquidity aggregation from multiple DEXes</p>
                 </div>
               </div>
             </div>
@@ -574,67 +889,6 @@ function App() {
 
         {isMobile ? (
           <MobForm/>
-          // <div className='p-0 m-0 ps-1 pe-4 mt-5'>
-          //   <p className='text-start white fsize-4 m-0 p-0 ms-2 f-barlow-700'>Beta is live!</p>
-          //   <p className='text-start white fsize-2 m-0 p-0 ms-2 f-barlow-400'>subscribe to our social</p>
-
-          //   <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-3'>
-          //     <svg className='col-2 m-0 p-0' width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-          //       <path d="M35.9698 2.93563C36.2503 0.979486 34.5272 -0.564513 32.9158 0.199132L0.82084 15.4089C-0.334736 15.9565 -0.250209 17.8458 0.948301 18.2577L7.56708 20.5328C8.83031 20.967 10.1982 20.7425 11.3013 19.9199L26.2237 8.79209C26.6737 8.45652 27.1642 9.14712 26.7797 9.57496L16.0383 21.5284C14.9963 22.688 15.2031 24.6528 16.4564 25.5012L28.4827 33.6413C29.8315 34.5543 31.5668 33.6371 31.8191 31.8778L35.9698 2.93563Z" fill="white"/>
-          //     </svg>
-          //     {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
-          //             id='tgnick' value={tgNick} onChange={(e) => setTgNick(e.target.value)}>
-          //     </input> */}
-          //     <div className='col-10'>
-          //       <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-          //         <p className='whitegrey p-0 m-0 f-barlow-400'>Announcements</p>
-          //       </button>
-          //     </div>
-          //   </div>
-
-          //   <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-4'>
-          //     <svg className='col-2 m-0 p-0' width="36" height="32" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          //       <path d="M11.2998 32C7.14053 32 3.26337 30.6909 0 28.4322C2.77071 28.6262 7.66038 28.1616 10.7017 25.0223C6.12653 24.7951 4.06319 20.998 3.79406 19.3753C4.18281 19.5375 6.03682 19.7323 7.08344 19.2779C1.82044 17.8499 1.01305 12.8519 1.19247 11.3266C2.17928 12.073 3.85387 12.3327 4.51174 12.2677C-0.392409 8.47059 1.37189 2.75862 2.23909 1.52535C5.75849 6.80162 11.033 9.76497 17.5582 9.9298C17.4352 9.34589 17.3702 8.73798 17.3702 8.11359C17.3702 3.63258 20.7172 0 24.846 0C27.0033 0 28.9471 0.991658 30.3116 2.57786C31.7532 2.21232 33.9227 1.35662 34.9833 0.616633C34.4487 2.69371 32.7843 4.42642 31.7776 5.06863C31.7859 5.09048 31.7694 5.04669 31.7776 5.06863C32.6619 4.92388 35.0547 4.42625 36 3.73225C35.5325 4.89913 33.768 6.83927 32.3199 7.92546C32.5893 20.7834 23.4983 32 11.2998 32Z" fill="white"/>
-          //     </svg>
-          //     <div className='col-10'>
-          //       <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-          //         <p className='whitegrey p-0 m-0 f-barlow-400'>Limex Twitter</p>
-          //       </button>
-          //     </div>
-          //     {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
-          //             id='twnick' value={twNick} onChange={(e) => setTwNick(e.target.value)}
-          //     >
-          //     </input> */}
-          //   </div>
-
-          //   {/* <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-3'>
-          //     <svg className='col-2 m-0 p-0' width="36" height="32" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          //       <path d="M11.2998 32C7.14053 32 3.26337 30.6909 0 28.4322C2.77071 28.6262 7.66038 28.1616 10.7017 25.0223C6.12653 24.7951 4.06319 20.998 3.79406 19.3753C4.18281 19.5375 6.03682 19.7323 7.08344 19.2779C1.82044 17.8499 1.01305 12.8519 1.19247 11.3266C2.17928 12.073 3.85387 12.3327 4.51174 12.2677C-0.392409 8.47059 1.37189 2.75862 2.23909 1.52535C5.75849 6.80162 11.033 9.76497 17.5582 9.9298C17.4352 9.34589 17.3702 8.73798 17.3702 8.11359C17.3702 3.63258 20.7172 0 24.846 0C27.0033 0 28.9471 0.991658 30.3116 2.57786C31.7532 2.21232 33.9227 1.35662 34.9833 0.616633C34.4487 2.69371 32.7843 4.42642 31.7776 5.06863C31.7859 5.09048 31.7694 5.04669 31.7776 5.06863C32.6619 4.92388 35.0547 4.42625 36 3.73225C35.5325 4.89913 33.768 6.83927 32.3199 7.92546C32.5893 20.7834 23.4983 32 11.2998 32Z" fill="white"/>
-          //     </svg>
-          //     <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
-          //       id='rtwnick' value={rtwNick} onChange={(e) => setRtwNick(e.target.value)}
-          //     >
-          //     </input>
-          //   </div> */}
-
-          //   <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-4 '>
-          //     <svg className='col-2 m-0 p-0 ' width="36" height="28" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          //       <path d="M30.4955 2.34496C28.165 1.24949 25.6733 0.453301 23.0684 0C22.7483 0.581155 22.3746 1.3628 22.117 1.98464C19.3477 1.56621 16.6039 1.56621 13.8857 1.98464C13.6281 1.3628 13.2458 0.581155 12.9231 0C10.3152 0.453301 7.82063 1.25239 5.49029 2.35077C0.789966 9.48735 -0.484217 16.4467 0.152875 23.3072C3.27038 25.6464 6.29161 27.0672 9.26186 27.9971C9.99523 26.983 10.6493 25.905 11.2128 24.7688C10.1396 24.3591 9.1118 23.8535 8.14058 23.2665C8.39825 23.0748 8.65026 22.8742 8.89377 22.668C14.8174 25.4516 21.2533 25.4516 27.1062 22.668C27.3524 22.8742 27.6045 23.0748 27.8593 23.2665C26.8852 23.8563 25.8546 24.362 24.7814 24.7717C25.3449 25.905 25.9961 26.9859 26.7323 28C29.7054 27.0702 32.7295 25.6493 35.847 23.3072C36.5946 15.3541 34.57 8.4587 30.4955 2.34496ZM12.0198 19.0881C10.2416 19.0881 8.78334 17.4201 8.78334 15.389C8.78334 13.3579 10.2104 11.6871 12.0198 11.6871C13.8291 11.6871 15.2873 13.3549 15.2562 15.389C15.2591 17.4201 13.8291 19.0881 12.0198 19.0881ZM23.9802 19.0881C22.2019 19.0881 20.7436 17.4201 20.7436 15.389C20.7436 13.3579 22.1708 11.6871 23.9802 11.6871C25.7894 11.6871 27.2477 13.3549 27.2165 15.389C27.2165 17.4201 25.7894 19.0881 23.9802 19.0881Z" fill="white"/>
-          //     </svg>
-          //     <div className='col-10'>
-          //       <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-          //         <p className='whitegrey p-0 m-0 f-barlow-400'>Community</p>
-          //       </button>
-          //     </div>
-          //     {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname'
-          //       id='dscnick' value={dscNick} onChange={(e) => setDscNick(e.target.value)}
-          //     >
-          //     </input> */}
-          //   </div>
-          //   {/* <div className='buttonJoin d-flex align-items-center justify-content-center h-6h   m-0 p-0 mt-2 ms-2'>
-          //       <p className='p-0 m-0 f-barlow-500'>{'Join'}</p>
-          //   </div> */}
-          // </div>
         ): null}
         { !isMobile && !isOrientaionH ?
           (
