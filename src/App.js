@@ -134,9 +134,15 @@ function App() {
   function setSlaid(slaid) {
     
     // refreshSlaidNext(slaid.slice(-1))
-    document.getElementById(slaid).className = 'slaid'
-    document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
-
+    if (isOrientaionH) {
+      document.getElementById(slaid).className = 'slaidH'
+      document.getElementById(slaid).className = 'slaidAnimH me-0 bg-slaid'
+    }
+    else {
+      document.getElementById(slaid).className = 'slaid'
+      document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
+    }
+    
     CurrentSlaid = slaid
   }
 
@@ -603,7 +609,7 @@ function App() {
         {isMobile ? null: (
         <div className='col-5 p-0'>
           {/* slaid0 */}
-          <div className='slaid' id='slaid0'>
+          <div className={isOrientaionH ? 'slaidH': 'slaid'} id='slaid0'>
             <p className="fsize-4 text-start f-glory white m-0 p-0">Multi-Chain arbitrage</p>
             <p className="fsize-4 text-start f-glory white m-0 p-0">DEX Aggregator</p>
             <p className="fsize-2 text-start f-barlow-400 white mt-2">With limit order tools and gasless trades</p>
@@ -619,7 +625,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -637,7 +643,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -654,7 +660,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -671,7 +677,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -688,7 +694,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -705,7 +711,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -722,7 +728,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -739,7 +745,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
@@ -756,7 +762,7 @@ function App() {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className='p-0 m-0 f-roboto-400'>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
