@@ -439,7 +439,7 @@ function App() {
 
             {/* MENU ITEMS */}
 
-            <div className='h-100 overflow-hidden my-4'>
+            <div className='h-menu overflow-hidden mt-4 mb-4'>
               <div id='menu' className='position-relative'>
                 {/* item 1 */}
                 <div id={1} 
@@ -587,7 +587,7 @@ function App() {
             </div>
 
             {/* arrow down */}
-            {!isOrientaionH ? (<div className={isOrientaionH ? 'w-50 mt-2': 'w-50 mt-5'}>
+            {!isOrientaionH ? (<div className={isOrientaionH ? 'w-50 mt-2': 'w-50 mt-0'}>
               <svg className='arrowButton' width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowDown()
