@@ -51,9 +51,31 @@ function App() {
   let CurentMenuItem = 'item0'
   let SelectedMenuItem = 1
   let placeMenuItem = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  let movesDic = {
+    2:['move1-1', 'move20', 'move31', 'move42', 'move53', 'move64', 'move75'],
+    3:['move1-2', 'move2-1', 'move30', 'move41', 'move52', 'move63', 'move74', 'move85'],
+    4:['move1-3', 'move2-2', 'move3-1', 'move40', 'move51', 'move62', 'move73', 'move84', 'move95'],
+  }
 
-  function setSelectedMenuItem(n) {
-    SelectedMenuItem = placeMenuItem.indexOf(n) + 1
+  function sleep(milliseconds) {
+    var t = (new Date()).getTime();
+    var i = 0;
+    while (((new Date()).getTime() - t) < milliseconds) {
+      i++;
+    }
+  }
+
+  function setSelectedMenuItem(num_item) {
+    SelectedMenuItem = placeMenuItem.indexOf(num_item) + 1
+    if (!isOrientaionH) {
+      if (SelectedMenuItem == 2) {
+        moveMenuUp()
+      }
+      else if (SelectedMenuItem != 1) {
+        moveMenuUpStep(SelectedMenuItem)
+      }
+      SelectedMenuItem = 1
+    }
   }
 
   function moveMenuDown() {
@@ -112,6 +134,38 @@ function App() {
     console.log('placeMenuItem', placeMenuItem)  
   }
 
+  function moveMenuUpStep(step) {
+    for (let i=0; i<(step + 4); i++) {
+      let n = placeMenuItem[i]
+      let num = (i+1).toString()
+      let nextnum = (i+2-step).toString()
+      if (nextnum <= 0) {
+        nextnum = '6'
+      }
+      if (num > 6) {
+        num = '6'
+      }
+      let item = document.getElementById(n)
+      item.classList.add(movesDic[step-1][i])
+      setTimeout(() => {
+        item.classList.remove('item' + num)
+        item.classList.remove(movesDic[step-1][i])
+        item.classList.add('item' + nextnum)
+      }, 400)
+    }
+    // shiftleft
+    let arr = placeMenuItem.slice()
+    for (let i=0; i<10; i++) {
+      if ((i + step-1) > 9) {
+        placeMenuItem[i] = arr[i + step-1 - 10]
+      }
+      else {
+        placeMenuItem[i] = arr[i + step-1]
+      }
+    }   
+    console.log('placeMenuItem', placeMenuItem, step-1)   
+  }
+
   function refreshSlaidNext(numSlaid) {
       let imgslaid = document.getElementById('imgslaidnext')
       if (numSlaid == '4') {
@@ -136,11 +190,22 @@ function App() {
     // refreshSlaidNext(slaid.slice(-1))
     if (isOrientaionH) {
       document.getElementById(slaid).className = 'slaidH'
-      document.getElementById(slaid).className = 'slaidAnimH me-0 bg-slaid'
+      if (slaid == 'slaid0') {
+        document.getElementById(slaid).className = 'slaidAnimH me-0'
+      }
+      else {
+        document.getElementById(slaid).className = 'slaidAnimH me-0 bg-slaid'
+      }
+      
     }
     else {
       document.getElementById(slaid).className = 'slaid'
-      document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
+      if (slaid == 'slaid0') {
+        document.getElementById(slaid).className = 'slaidAnim me-0'
+      }
+      else {
+        document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
+      }
     }
     
     CurrentSlaid = slaid
@@ -184,7 +249,7 @@ function App() {
 
   function clickArrowDown() {
     console.log('cur', SelectedMenuItem)
-    if (SelectedMenuItem == 5) {
+    if (SelectedMenuItem == 1) {
       console.log('down')
       moveMenuUp()
     }
@@ -222,14 +287,14 @@ function App() {
 
   function setMenuItemSelect(itemMenu) {
 
-    document.getElementById(CurentMenuItem).className = 'text-start leftMenuItem p-0 m-0'
+    document.getElementById(CurentMenuItem).className = 'text-start leftMenuItem p-0 m-0 f-barlow-700'
     if (CurentMenuItem[0] == '_') {
-      document.getElementById(CurentMenuItem + '0').className = 'text-start leftMenuItem p-0 m-0'
+      document.getElementById(CurentMenuItem + '0').className = 'text-start leftMenuItem p-0 m-0 f-barlow-700'
     }
     
-    document.getElementById(itemMenu).className = 'text-start leftMenuItemSelect p-0 m-0'
+    document.getElementById(itemMenu).className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
     if (itemMenu[0] == '_') {
-      document.getElementById(itemMenu + '0').className = 'text-start leftMenuItemSelect p-0 m-0'
+      document.getElementById(itemMenu + '0').className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
     }
     
     CurentMenuItem = itemMenu
@@ -742,14 +807,14 @@ function App() {
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">orders</p>
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">No more waiting for a long execution</p>
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">of a small order</p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+            {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
                   className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* slaid9 */}
@@ -759,14 +824,14 @@ function App() {
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap h-1"> </p>
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With liquidity aggregation from multiple DEXes</p>
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+            {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
                   className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
               </div>
-            </div>
+            </div> */}
           </div>
 
           {/* nextSlaid */}
@@ -815,16 +880,16 @@ function App() {
 
               <div class="carousel-item active" data-bs-interval="10000">
                 <div className='slaidM ms-3 mt-4' id='slaid0'>
-                  <p className="fsize-4 text-start f-glory white m-0 p-0">Multi-Chain arbitrage</p>
-                  <p className="fsize-4 text-start f-glory white m-0 p-0">DEX Aggregator</p>
-                  <p className="fsize-3 text-start f-barlow-400 white mt-2">With limit order tools and gasless trades</p>
+                  <p className="fsize-4 text-start f-glory white ms-2 m-0 p-0">Multi-Chain arbitrage</p>
+                  <p className="fsize-4 text-start f-glory white ms-2 m-0 p-0">DEX Aggregator</p>
+                  <p className="fsize-3 text-start f-barlow-400 white ms-2 mt-2">With limit order tools and gasless trades</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Track best dealer and</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">copy their trades</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With most innovative trading tools</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Track best dealer and</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">copy their trades</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">With most innovative trading tools</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -837,9 +902,9 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Dont need Gas token</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">in wallet</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Pay in any asset and get cashbacks</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Dont need Gas token</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">in wallet</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Pay in any asset and get cashbacks</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -852,10 +917,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Make an arbitrage</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">profit</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">At each transaction causing</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">an arb-opportunity</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Make an arbitrage</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">profit</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">At each transaction causing</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">an arb-opportunity</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -868,10 +933,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">The most functional</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">trading terminal</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With Limit, Take Profit, Stop Loss</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">and Trailling Stop orders</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">The most functional</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">trading terminal</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">With Limit, Take Profit, Stop Loss</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">and Trailling Stop orders</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -884,9 +949,9 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Seamless Cross-</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Chain</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">From Any to Any asset per one transaction</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Seamless Cross-</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">Chain</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">From Any to Any asset per one transaction</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -899,10 +964,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Decentralize protocol</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">Get revenue</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Become a Protocol Relayer and participate</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">in the execution of trades</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Decentralize protocol</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">Get revenue</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Become a Protocol Relayer and participate</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">in the execution of trades</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -915,10 +980,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">MEV protection in any</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">chain</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">Add our RPC to Metamask to catch</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">arbs from multiple DEXes</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">MEV protection in any</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">chain</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Add our RPC to Metamask to catch</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">arbs from multiple DEXes</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -931,32 +996,32 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Grouping minor</p>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0">orders</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">No more waiting for a long execution</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">of a small order</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Grouping minor</p>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">orders</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">No more waiting for a long execution</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">of a small order</p>
+                  {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
                         className='p-0 m-0 f-roboto-400'>
                         {'Learn more'}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white m-0 p-0 text-nowrap">Get best price</p>
-                  <p className="fsize-2 text-start f-barlow-400 white mt-2">With liquidity aggregation from multiple DEXes</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
+                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Get best price</p>
+                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-4">With liquidity aggregation from multiple DEXes</p>
+                  {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
                         className='p-0 m-0 f-roboto-400'>
                         {'Learn more'}
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

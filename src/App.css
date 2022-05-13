@@ -114,7 +114,7 @@
 
 .f-barlow-700 {
   font-family: 'Barlow', sans-serif;
-  font-weight: 700;  
+  font-weight: 800;  
 }
 
 .f-barlow-500 {
@@ -661,5 +661,342 @@ input {
   }
   100% {
     top: 10px;
+  }
+}
+
+/* more than 1 item animation */
+.move1-3 {
+  animation-name: moveUp1-3;
+  animation-duration: 0.4s;
+}
+
+.move1-2 {
+  animation-name: moveUp1-2;
+  animation-duration: 0.4s;
+}
+
+.move1-1 {
+  animation-name: moveUp1-1;
+  animation-duration: 0.4s;
+}
+
+.move2-2 {
+  animation-name: moveUp2-2;
+  animation-duration: 0.4s;
+}
+
+.move2-1 {
+  animation-name: moveUp2-1;
+  animation-duration: 0.4s;
+}
+
+.move20 {
+  animation-name: moveUp20;
+  animation-duration: 0.4s;
+}
+
+.move3-1 {
+  animation-name: moveUp3-1;
+  animation-duration: 0.4s;
+}
+
+.move30 {
+  animation-name: moveUp30;
+  animation-duration: 0.4s;
+}
+
+.move31 {
+  animation-name: moveUp31;
+  animation-duration: 0.4s;
+}
+
+.move40 {
+  animation-name: moveUp40;
+  animation-duration: 0.4s;
+}
+
+.move41 {
+  animation-name: moveUp41;
+  animation-duration: 0.4s;
+}
+
+.move42 {
+  animation-name: moveUp42;
+  animation-duration: 0.4s;
+}
+
+.move51 {
+  animation-name: moveUp51;
+  animation-duration: 0.4s;
+}
+
+.move52 {
+  animation-name: moveUp52;
+  animation-duration: 0.4s;
+}
+
+.move53 {
+  animation-name: moveUp53;
+  animation-duration: 0.4s;
+}
+
+.move62 {
+  animation-name: moveUp62;
+  animation-duration: 0.4s;
+}
+
+.move63 {
+  animation-name: moveUp63;
+  animation-duration: 0.4s;
+}
+
+.move64 {
+  animation-name: moveUp64;
+  animation-duration: 0.4s;
+}
+
+.move73 {
+  animation-name: moveUp73;
+  animation-duration: 0.4s;
+}
+
+.move74 {
+  animation-name: moveUp74;
+  animation-duration: 0.4s;
+}
+
+.move75 {
+  animation-name: moveUp75;
+  animation-duration: 0.4s;
+}
+
+.move84 {
+  animation-name: moveUp84;
+  animation-duration: 0.4s;
+}
+
+.move85 {
+  animation-name: moveUp85;
+  animation-duration: 0.4s;
+}
+
+.move95 {
+  animation-name: moveUp95;
+  animation-duration: 0.4s;
+}
+
+@keyframes moveUp1-3 {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -230px;
+  }
+}
+
+@keyframes moveUp1-2 {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -170px;
+  }
+}
+
+@keyframes moveUp1-1 {
+  0% {
+    top: 10px;
+  }
+  100% {
+    top: -110px;
+  }
+}
+
+@keyframes moveUp2-2 {
+  0% {
+    top: 70px;
+  }
+  100% {
+    top: -170px;
+  }
+}
+
+@keyframes moveUp2-1 {
+  0% {
+    top: 70px;
+  }
+  100% {
+    top: -110px;
+  }
+}
+
+@keyframes moveUp20 {
+  0% {
+    top: 70px;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
+@keyframes moveUp3-1 {
+  0% {
+    top: 130px;
+  }
+  100% {
+    top: -110px;
+  }
+}
+
+@keyframes moveUp30 {
+  0% {
+    top: 130px;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
+@keyframes moveUp31 {
+  0% {
+    top: 130px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes moveUp40 {
+  0% {
+    top: 190px;
+  }
+  100% {
+    top: -50px;
+  }
+}
+
+@keyframes moveUp41 {
+  0% {
+    top: 190px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes moveUp42 {
+  0% {
+    top: 190px;
+  }
+  100% {
+    top: 70px;
+  }
+}
+
+@keyframes moveUp51 {
+  0% {
+    top: 250px;
+  }
+  100% {
+    top: 10px;
+  }
+}
+
+@keyframes moveUp52 {
+  0% {
+    top: 250px;
+  }
+  100% {
+    top: 70px;
+  }
+}
+
+@keyframes moveUp53 {
+  0% {
+    top: 250px;
+  }
+  100% {
+    top: 130px;
+  }
+}
+
+@keyframes moveUp62 {
+  0% {
+    top: 310px;
+  }
+  100% {
+    top: 70px;
+  }
+}
+
+@keyframes moveUp63 {
+  0% {
+    top: 310px;
+  }
+  100% {
+    top: 130px;
+  }
+}
+
+@keyframes moveUp64 {
+  0% {
+    top: 310px;
+  }
+  100% {
+    top: 190px;
+  }
+}
+
+@keyframes moveUp73 {
+  0% {
+    top: 370px;
+  }
+  100% {
+    top: 130px;
+  }
+}
+
+@keyframes moveUp74 {
+  0% {
+    top: 370px;
+  }
+  100% {
+    top: 190px;
+  }
+}
+
+@keyframes moveUp75 {
+  0% {
+    top: 370px;
+  }
+  100% {
+    top: 250px;
+  }
+}
+
+@keyframes moveUp84 {
+  0% {
+    top: 430px;
+  }
+  100% {
+    top: 190px;
+  }
+}
+
+@keyframes moveUp85 {
+  0% {
+    top: 430px;
+  }
+  100% {
+    top: 250px;
+  }
+}
+
+@keyframes moveUp95 {
+  0% {
+    top: 490px;
+  }
+  100% {
+    top: 250px;
   }
 }
