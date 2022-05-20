@@ -290,12 +290,12 @@ input {
 }
 
 .h-menuH {
-  height: 90vh;
+  height: 40vh;
 }
 
 .position-menuH {
   position: absolute;
-  top: 5vh;
+  top: 15vh;
 }
 
 .bg-slaid {
@@ -421,6 +421,7 @@ input {
   
   height: 25vh;
   width: 85vw;
+  position: relative;
 }
 
 .imgslaidM {
