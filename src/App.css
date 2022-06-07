@@ -140,12 +140,29 @@
   font-weight: 400;
 }
 
+.fsize-24 {
+  font-size: 24px;
+}
+
+.fsize-16 {
+  font-size: 16px;
+}
+
+.fsize-32 {
+  font-size: 32px;
+}
+
+.fsize-12 {
+  font-size: 12px;
+}
+
 .fsize-5 {
   font-size: 5vmax;
 }
 
 .fsize-4 {
-  font-size: 4vmax;
+  /* font-size: 4vmax; */
+  font-size: 45px;
 }
 
 .fsize-3 {
@@ -153,7 +170,8 @@
 }
 
 .fsize-2 {
-  font-size: 2vmax;
+  /* font-size: 2vmax; */
+  font-size: 24px;
 }
 
 .fsize-1 {
@@ -213,13 +231,17 @@
   cursor: pointer;
 }
 
+.arrowButton path{
+  stroke: #EE9919;
+}
+
 .arrowButton:hover {
   cursor: pointer;
   
 }
 
 .arrowButton:hover path {
-  stroke: #EE9919;
+  stroke: white;
 }
 
 .leftMenuItem {
@@ -261,6 +283,22 @@ input {
   outline: none;
 }
 
+.mt-6 {
+  margin-top: 10vh;
+}
+
+.w-103 {
+  width: 103px;
+}
+
+.w-9 {
+  width: 9vw;
+}
+
+.h-32 {
+  height: 32px;
+}
+
 .h-10 {
   height: 30px;
 }
@@ -287,6 +325,12 @@ input {
 
 .h-menu {
   height: 40vh;
+  width: 9vw;
+  background-color: rgba(53, 53, 55, 0.5);
+  mix-blend-mode: normal;
+  /* opacity: 0.5; */
+  border-radius: 30px;
+  /* padding-left: 13px; */
 }
 
 .h-menuH {
@@ -313,6 +357,13 @@ input {
 
 .ms-minus {
   margin-left: -3vw;
+}
+
+.menuM {
+  background: rgba(67, 62, 62, 0.63);
+  border-top: 1px solid #E1E1E1;
+  border-bottom: 1px solid #E1E1E1;
+  height: 28px;
 }
 
 .slaid {
@@ -355,8 +406,8 @@ input {
   border-radius: 20px;
   /* overflow: hidden; */
   transform: translateY(50px);
-  width: 41vw;
-  height: 25vw;
+  width: 40vw;
+  height: 40vh;
   /* width: 522px; */
   /* height: 301px; */
   animation-name: slaidShow;
@@ -400,7 +451,7 @@ input {
 
 .buttonConnectWalletM {
   background-color: #EE9919;
-  height: 6vh;
+  height: 32px;
   width: 25vw;
   border-radius: 10px;
 }
@@ -468,27 +519,27 @@ input {
 
 .item1 {
   position: absolute;
-  top: 10px;
+  top: 26px;
 }
 
 .item2 {
   position: absolute;
-  top: 70px;
+  top: 77px;
 }
 
 .item3 {
   position: absolute;
-  top: 130px;
+  top: 145px;
 }
 
 .item4 {
   position: absolute;
-  top: 190px;
+  top: 196px;
 }
 
 .item5 {
   position: absolute;
-  top: 250px;
+  top: 266px;
 }
 
 .item6 {
@@ -528,7 +579,7 @@ input {
 
 @keyframes moveUp1 {
   0% {
-    top: 10px;
+    top: 26px;
   }
   100% {
     top: -50px;
@@ -537,37 +588,37 @@ input {
 
 @keyframes moveUp2 {
   0% {
-    top: 70px;
+    top: 77px;
   }
   100% {
-    top: 10px;
+    top: 26px;
   }
 }
 
 @keyframes moveUp3 {
   0% {
-    top: 130px;
+    top: 145px;
   }
   100% {
-    top: 70px;
+    top: 77px;
   }
 }
 
 @keyframes moveUp4 {
   0% {
-    top: 190px;
+    top: 196px;
   }
   100% {
-    top: 130px;
+    top: 145px;
   }
 }
 
 @keyframes moveUp5 {
   0% {
-    top: 250px;
+    top: 266px;
   }
   100% {
-    top: 190px;
+    top: 196px;
   }
 }
 
@@ -576,7 +627,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 250px;
+    top: 266px;
   }
 }
 
@@ -613,43 +664,43 @@ input {
 
 @keyframes moveDown1 {
   0% {
-    top: 10px;
+    top: 26px;
   }
   100% {
-    top: 70px;
+    top: 77px;
   }
 }
 
 @keyframes moveDown2 {
   0% {
-    top: 70px;
+    top: 77px;
   }
   100% {
-    top: 130px;
+    top: 145px;
   }
 }
 
 @keyframes moveDown3 {
   0% {
-    top: 130px;
+    top: 145px;
   }
   100% {
-    top: 190px;
+    top: 196px;
   }
 }
 
 @keyframes moveDown4 {
   0% {
-    top: 190px;
+    top: 196px;
   }
   100% {
-    top: 250px;
+    top: 266px;
   }
 }
 
 @keyframes moveDown5 {
   0% {
-    top: 250px;
+    top: 266px;
   }
   100% {
     top: 310px;
@@ -661,7 +712,7 @@ input {
     top: -50px;
   }
   100% {
-    top: 10px;
+    top: 26px;
   }
 }
 
@@ -788,7 +839,7 @@ input {
 
 @keyframes moveUp1-3 {
   0% {
-    top: 10px;
+    top: 26px;
   }
   100% {
     top: -230px;
@@ -797,7 +848,7 @@ input {
 
 @keyframes moveUp1-2 {
   0% {
-    top: 10px;
+    top: 26px;
   }
   100% {
     top: -170px;
@@ -806,7 +857,7 @@ input {
 
 @keyframes moveUp1-1 {
   0% {
-    top: 10px;
+    top: 26px;
   }
   100% {
     top: -110px;
@@ -815,7 +866,7 @@ input {
 
 @keyframes moveUp2-2 {
   0% {
-    top: 70px;
+    top: 77px;
   }
   100% {
     top: -170px;
@@ -824,7 +875,7 @@ input {
 
 @keyframes moveUp2-1 {
   0% {
-    top: 70px;
+    top: 77px;
   }
   100% {
     top: -110px;
@@ -833,7 +884,7 @@ input {
 
 @keyframes moveUp20 {
   0% {
-    top: 70px;
+    top: 77px;
   }
   100% {
     top: -50px;
@@ -842,7 +893,7 @@ input {
 
 @keyframes moveUp3-1 {
   0% {
-    top: 130px;
+    top: 145px;
   }
   100% {
     top: -110px;
@@ -851,7 +902,7 @@ input {
 
 @keyframes moveUp30 {
   0% {
-    top: 130px;
+    top: 145px;
   }
   100% {
     top: -50px;
@@ -860,16 +911,16 @@ input {
 
 @keyframes moveUp31 {
   0% {
-    top: 130px;
+    top: 145px;
   }
   100% {
-    top: 10px;
+    top: 26px;
   }
 }
 
 @keyframes moveUp40 {
   0% {
-    top: 190px;
+    top: 196px;
   }
   100% {
     top: -50px;
@@ -878,46 +929,46 @@ input {
 
 @keyframes moveUp41 {
   0% {
-    top: 190px;
+    top: 196px;
   }
   100% {
-    top: 10px;
+    top: 26px;
   }
 }
 
 @keyframes moveUp42 {
   0% {
-    top: 190px;
+    top: 196px;
   }
   100% {
-    top: 70px;
+    top: 77px;
   }
 }
 
 @keyframes moveUp51 {
   0% {
-    top: 250px;
+    top: 266px;
   }
   100% {
-    top: 10px;
+    top: 26px;
   }
 }
 
 @keyframes moveUp52 {
   0% {
-    top: 250px;
+    top: 266px;
   }
   100% {
-    top: 70px;
+    top: 77px;
   }
 }
 
 @keyframes moveUp53 {
   0% {
-    top: 250px;
+    top: 266px;
   }
   100% {
-    top: 130px;
+    top: 145px;
   }
 }
 
@@ -926,7 +977,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 70px;
+    top: 77px;
   }
 }
 
@@ -935,7 +986,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 130px;
+    top: 145px;
   }
 }
 
@@ -944,7 +995,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 190px;
+    top: 196px;
   }
 }
 
@@ -953,7 +1004,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 130px;
+    top: 145px;
   }
 }
 
@@ -962,7 +1013,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 190px;
+    top: 196px;
   }
 }
 
@@ -971,7 +1022,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 250px;
+    top: 266px;
   }
 }
 
@@ -980,7 +1031,7 @@ input {
     top: 430px;
   }
   100% {
-    top: 190px;
+    top: 196px;
   }
 }
 
@@ -989,7 +1040,7 @@ input {
     top: 430px;
   }
   100% {
-    top: 250px;
+    top: 266px;
   }
 }
 
@@ -998,6 +1049,6 @@ input {
     top: 490px;
   }
   100% {
-    top: 250px;
+    top: 266px;
   }
 }

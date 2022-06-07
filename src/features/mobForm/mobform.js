@@ -2,10 +2,10 @@ export function MobForm() {
     return (
         <>
             <div className='p-0 m-0 ps-1 pe-4 mt-5'>
-            <p className='text-start white fsize-4 m-0 p-0 ms-2 f-barlow-700'>Beta is live!</p>
-            <p className='text-start white fsize-2 m-0 p-0 ms-2 f-barlow-400'>subscribe to our social</p>
+            <p className='text-start white fsize-24 m-0 p-0 ms-2 f-barlow-700'>Beta is live!</p>
+            <p className='text-start white fsize-16 m-0 p-0 ms-2 f-barlow-400'>subscribe to our social</p>
 
-            <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-3'>
+            <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-4'>
               <svg className='col-2 m-0 p-0' width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M35.9698 2.93563C36.2503 0.979486 34.5272 -0.564513 32.9158 0.199132L0.82084 15.4089C-0.334736 15.9565 -0.250209 17.8458 0.948301 18.2577L7.56708 20.5328C8.83031 20.967 10.1982 20.7425 11.3013 19.9199L26.2237 8.79209C26.6737 8.45652 27.1642 9.14712 26.7797 9.57496L16.0383 21.5284C14.9963 22.688 15.2031 24.6528 16.4564 25.5012L28.4827 33.6413C29.8315 34.5543 31.5668 33.6371 31.8191 31.8778L35.9698 2.93563Z" fill="white"/>
               </svg>
@@ -14,7 +14,7 @@ export function MobForm() {
               </input> */}
               <div className='col-10'>
                 <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-                  <p className='whitegrey p-0 m-0 f-barlow-400'>Announcements</p>
+                  <p className='whitegrey p-0 m-0 f-barlow-700 fsize-16'>Announcements</p>
                 </button>
               </div>
             </div>
@@ -25,7 +25,7 @@ export function MobForm() {
               </svg>
               <div className='col-10'>
                 <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-                  <p className='whitegrey p-0 m-0 f-barlow-400'>Limex Twitter</p>
+                  <p className='whitegrey p-0 m-0 f-barlow-700 fsize-16'>Limex Twitter</p>
                 </button>
               </div>
               {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
@@ -50,7 +50,7 @@ export function MobForm() {
               </svg>
               <div className='col-10'>
                 <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
-                  <p className='whitegrey p-0 m-0 f-barlow-400'>Community</p>
+                  <p className='whitegrey p-0 m-0 f-barlow-700 fsize-16'>Community</p>
                 </button>
               </div>
               {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname'

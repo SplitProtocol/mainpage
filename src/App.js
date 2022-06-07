@@ -31,7 +31,6 @@ function App() {
     'Swap 2 Earn',
     'Limit Orders',
     'Cross-Chain',
-    'Split Relayer',
     'Split RPC',
     'Bundling',
     'Aggregation'
@@ -50,7 +49,7 @@ function App() {
   let CurrentSlaid = 'slaid0'
   let CurentMenuItem = 'item0'
   let SelectedMenuItem = 1
-  let placeMenuItem = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  let placeMenuItem = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   let movesDic = {
     2:['move1-1', 'move20', 'move31', 'move42', 'move53', 'move64', 'move75'],
     3:['move1-2', 'move2-1', 'move30', 'move41', 'move52', 'move63', 'move74', 'move85'],
@@ -92,7 +91,7 @@ function App() {
           item.classList.add('item' + nextnum)
         }, 400)
     }
-    let item = document.getElementById(placeMenuItem[9])
+    let item = document.getElementById(placeMenuItem[8])
     item.classList.add('moved6')
         setTimeout(() => {
           item.classList.remove('item6')
@@ -100,8 +99,8 @@ function App() {
           item.classList.add('item1')
         }, 400)
     // shiftleft
-    let buf = placeMenuItem[9]
-    for (let i=9; i>0; i--) {
+    let buf = placeMenuItem[8]
+    for (let i=8; i>0; i--) {
       placeMenuItem[i] = placeMenuItem[i - 1]
     }    
     placeMenuItem[0] = buf  
@@ -127,10 +126,10 @@ function App() {
     }
     // shiftleft
     let buf = placeMenuItem[0]
-    for (let i=0; i<9; i++) {
+    for (let i=0; i<8; i++) {
       placeMenuItem[i] = placeMenuItem[i + 1]
     }    
-    placeMenuItem[9] = buf  
+    placeMenuItem[8] = buf  
     console.log('placeMenuItem', placeMenuItem)  
   }
 
@@ -155,9 +154,9 @@ function App() {
     }
     // shiftleft
     let arr = placeMenuItem.slice()
-    for (let i=0; i<10; i++) {
-      if ((i + step-1) > 9) {
-        placeMenuItem[i] = arr[i + step-1 - 10]
+    for (let i=0; i<9; i++) {
+      if ((i + step-1) > 8) {
+        placeMenuItem[i] = arr[i + step-1 - 9]
       }
       else {
         placeMenuItem[i] = arr[i + step-1]
@@ -226,9 +225,9 @@ function App() {
 
     let num_slaid = parseInt(curNumSlaid)
     let next_num_slaid = num_slaid - 1
-    if (next_num_slaid == -1) {next_num_slaid = 9}
+    if (next_num_slaid == -1) {next_num_slaid = 8}
 
-    let sld = 'slaid9'
+    let sld = 'slaid8'
     if (num_slaid != 0) {
       sld = 'slaid' + next_num_slaid.toString()
     }
@@ -262,10 +261,10 @@ function App() {
 
     let num_slaid = parseInt(curNumSlaid)
     let next_num_slaid = num_slaid + 1
-    if (next_num_slaid == 10) {next_num_slaid = 0}
+    if (next_num_slaid == 9) {next_num_slaid = 0}
 
     let sld = 'slaid0'
-    if (num_slaid != 9) {
+    if (num_slaid != 8) {
       sld = 'slaid' + next_num_slaid.toString()
     }
     
@@ -322,13 +321,13 @@ function App() {
         console.log(e.from, e.direction)
         setTimeout(() => {
           if (e.direction == 'left') {
-            if (e.from == 9) {
+            if (e.from == 8) {
               setcurMenuItemM(0)
               setnextMenuItemM(1)
             }
             else {
               setcurMenuItemM(e.from + 1)
-              if (e.from + 1 == 9) {
+              if (e.from + 1 == 8) {
                 setnextMenuItemM(0)
               } 
               else {
@@ -339,7 +338,7 @@ function App() {
           else
           {
             if (e.from == 0) {
-              setcurMenuItemM(9)
+              setcurMenuItemM(8)
               setnextMenuItemM(0)
             }
             else {
@@ -463,7 +462,7 @@ function App() {
             <div className={isMobile ? 
               ('col-2 d-flex justify-content-end align-items-center p-0 m-0'): 
               ('col-2 d-flex justify-content-end align-items-center')}>
-              <p className={isOrientaionH ? 'docsButton fsize-4h p-0 m-0 f-barlow-500 white': 'docsButton fsize-3h p-0 m-0 f-barlow-500 white'}>
+              <p className={isOrientaionH ? 'docsButton fsize-4h p-0 m-0 f-barlow-500 white': 'docsButton fsize-16 p-0 m-0 f-barlow-500 white'}>
                 {'Docs'}
               </p>
             </div>
@@ -476,11 +475,11 @@ function App() {
             </div> */}
 
             <div className={isMobile || isOrientaionH ? 
-              ('buttonConnectWalletM col-8 d-flex align-items-center justify-content-center p-0 m-0'):
+              ('buttonConnectWalletM col-8 d-flex align-items-center justify-content-center p-0 m-0 h-32'):
               ('buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-2')}>
               <p 
                 className={isMobile ? 
-                  ('p-0 m-0 f-roboto-400 fsize-2h ww'):
+                  ('p-0 m-0 f-barlow-700 fsize-12 ww '):
                   ('p-0 m-0 f-roboto-400')}>
                 {'Connect wallet'}
               </p>
@@ -501,7 +500,7 @@ function App() {
 
             {/* arrowtop */}
             {!isOrientaionH || true ? (
-            <div className='w-50'>
+            <div className='w-9 mx-2'>
               <svg className='arrowButton' width="29" height="17" viewBox="0 0 29 17" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowTop()
@@ -509,159 +508,161 @@ function App() {
               >
                 <path d="M1 15.5L14.5 2L28 15.5" stroke="white" stroke-width="2"/>
               </svg>
+              
             </div>) : null}
 
             {/* MENU ITEMS */}
 
-            <div className={isOrientaionH ? 'h-menuH overflow-hidden mb-4 ': 'h-menu overflow-hidden mt-4 mb-4'}>
+            <div className={isOrientaionH ? 'h-menuH overflow-hidden mb-4 ': 'h-menu ps-3 overflow-hidden mt-4 mb-4 mx-2'}>
               <div id='menu' className='position-relative'>
-                {/* item 1 */}
-                <div id={1} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 item1': 'd-flex flex-column leftMenuButton item1'} 
-                  onClick={() => {
-                    setMenuItemSelect('item0')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid0')
-                    setSelectedMenuItem(1)
-                  }}
-                >
-                  <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
-                      id='item0'
+                <div className=''>
+                  {/* item 1 */}
+                  <div id={1} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 item1': 'd-flex flex-column leftMenuButton item1'} 
+                    onClick={() => {
+                      setMenuItemSelect('item0')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid0')
+                      setSelectedMenuItem(1)
+                    }}
                   >
-                      {'Split'}
-                  </p>
-                </div>
+                    <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
+                        id='item0'
+                    >
+                        {'Split'}
+                    </p>
+                  </div>
 
-                {/* item 2 */}
-                <div id={2} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item2': 'd-flex flex-column leftMenuButton item2'} 
-                  onClick={() => {
-                    setMenuItemSelect('_item1')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid1')
-                    setSelectedMenuItem(2)
-                  }}>
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item1'>Auto Trading</p>
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item10'>Tools</p>
-                </div>
-                
-                {/* item 3 */}
-                <div 
-                  id={3}
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item3': 'd-flex flex-column leftMenuButton item3'}  
-                  onClick={() => {
-                    setMenuItemSelect('item2')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid2')
-                    setSelectedMenuItem(3)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item2'>{'Gasless Trade'} </p>
-                </div>
+                  {/* item 2 */}
+                  <div id={2} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item2': 'd-flex flex-column leftMenuButton item2'} 
+                    onClick={() => {
+                      setMenuItemSelect('_item1')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid1')
+                      setSelectedMenuItem(2)
+                    }}>
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item1'>Auto Trading</p>
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item10'>Tools</p>
+                  </div>
+                  
+                  {/* item 3 */}
+                  <div 
+                    id={3}
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item3': 'd-flex flex-column leftMenuButton item3'}  
+                    onClick={() => {
+                      setMenuItemSelect('item2')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid2')
+                      setSelectedMenuItem(3)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item2'>{'Gasless Trade'} </p>
+                  </div>
 
-                {/* item 4 */}
-                <div id={4} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item4': 'd-flex flex-column leftMenuButton item4'} 
-                  onClick={() => {
-                    setMenuItemSelect('item3')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid3')
-                    setSelectedMenuItem(4)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item3'>{'Swap 2 Earn'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item30'>{'make money'}</p> */}
-                </div>
-                
-                {/* item 5 */}
-                <div id={5} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item5': 'd-flex flex-column leftMenuButton item5'}
-                  onClick={() => {
-                    setMenuItemSelect('item4')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid4')
-                    setSelectedMenuItem(5)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item4'>{'Limit Orders'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
-                </div>
+                  {/* item 4 */}
+                  <div id={4} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item4': 'd-flex flex-column leftMenuButton item4'} 
+                    onClick={() => {
+                      setMenuItemSelect('item3')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid3')
+                      setSelectedMenuItem(4)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item3'>{'Swap 2 Earn'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item30'>{'make money'}</p> */}
+                  </div>
+                  
+                  {/* item 5 */}
+                  <div id={5} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item5': 'd-flex flex-column leftMenuButton item5'}
+                    onClick={() => {
+                      setMenuItemSelect('item4')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid4')
+                      setSelectedMenuItem(5)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item4'>{'Limit Orders'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  </div>
 
-                {/* item 6 */}
-                <div id={6} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
-                  onClick={() => {
-                    setMenuItemSelect('item5')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid5')
-                    setSelectedMenuItem(6)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item5'>{'Cross-Chain'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
-                </div>
+                  {/* item 6 */}
+                  <div id={6} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
+                    onClick={() => {
+                      setMenuItemSelect('item5')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid5')
+                      setSelectedMenuItem(6)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item5'>{'Cross-Chain'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  </div>
 
-                {/* item 7 */}
-                <div id={7} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
-                  onClick={() => {
-                    setMenuItemSelect('item6')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid6')
-                    setSelectedMenuItem(7)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item6'>{'Split Relayer'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
-                </div>
+                  {/* item 7 */}
+                  {/* <div id={7} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
+                    onClick={() => {
+                      setMenuItemSelect('item6')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid6')
+                      setSelectedMenuItem(7)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item6'>{'Split Relayer'}</p>
+                  </div> */}
 
-                {/* item 8 */}
-                <div id={8} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
-                  onClick={() => {
-                    setMenuItemSelect('item7')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid7')
-                    setSelectedMenuItem(8)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item7'>{'Split RPC'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
-                </div>
+                  {/* item 8 */}
+                  <div id={7} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
+                    onClick={() => {
+                      setMenuItemSelect('item6')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid6')
+                      setSelectedMenuItem(7)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item6'>{'Split RPC'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  </div>
 
-                {/* item 9 */}
-                <div id={9} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
-                  onClick={() => {
-                    setMenuItemSelect('item8')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid8')
-                    setSelectedMenuItem(9)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item8'>{'Bundling'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
-                </div>
+                  {/* item 9 */}
+                  <div id={8} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
+                    onClick={() => {
+                      setMenuItemSelect('item7')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid7')
+                      setSelectedMenuItem(8)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item7'>{'Bundling'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  </div>
 
-                {/* item 10 */}
-                <div id={10} 
-                  className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
-                  onClick={() => {
-                    setMenuItemSelect('item9')
-                    hideCurrentSlaid(CurrentSlaid)
-                    setSlaid('slaid9')
-                    setSelectedMenuItem(10)
-                  }}
-                >
-                  <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item9'>{'Aggregation'}</p>
-                  {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  {/* item 10 */}
+                  <div id={9} 
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
+                    onClick={() => {
+                      setMenuItemSelect('item8')
+                      hideCurrentSlaid(CurrentSlaid)
+                      setSlaid('slaid8')
+                      setSelectedMenuItem(9)
+                    }}
+                  >
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item8'>{'Aggregation'}</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item40'>{'something'}</p> */}
+                  </div>
                 </div>
-
               </div>
             </div>
 
             {/* arrow down */}
-            {!isOrientaionH || true ? (<div className={isOrientaionH ? 'w-50 mt-2': 'w-50 mt-0'}>
+            {!isOrientaionH || true ? (
+            <div className={isOrientaionH ? 'w-50 mt-2': 'w-9 mx-2'}>
               <svg className='arrowButton' width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowDown()
@@ -675,7 +676,7 @@ function App() {
         )}
 
         {isMobile ? null: (
-        <div className='col-5 p-0'>
+        <div className='col-5 pt-5'>
           {/* slaid0 */}
           <div className={isOrientaionH ? 'slaidH': 'slaid'} id='slaid0'>
             <p className="fsize-4 text-start f-glory white m-0 p-0">Omni-Chain arbitrage</p>
@@ -770,8 +771,7 @@ function App() {
           </div>
 
           {/* slaid6 */}
-          <div className='slaidHide' id='slaid6'>
-            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
+          {/* <div className='slaidHide' id='slaid6'>
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Decentralize protocol</p>
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">Get revenue</p>
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Become a Protocol Relayer and participate</p>
@@ -784,10 +784,10 @@ function App() {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* slaid7 */}
-          <div className='slaidHide' id='slaid7'>
+          <div className='slaidHide' id='slaid6'>
             {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">MEV protection in any</p>
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">chain</p>
@@ -804,7 +804,7 @@ function App() {
           </div>
 
           {/* slaid8 */}
-          <div className='slaidHide' id='slaid8'>
+          <div className='slaidHide' id='slaid7'>
             {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Grouping minor</p>
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">orders</p>
@@ -821,7 +821,7 @@ function App() {
           </div>
 
           {/* slaid9 */}
-          <div className='slaidHide' id='slaid9'>
+          <div className='slaidHide' id='slaid8'>
             {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Get best price</p>
             <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap h-1"> </p>
@@ -854,7 +854,7 @@ function App() {
         {isMobile ? (
           <>
           <div id="myCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="true">
-            <div className='row p-0 m-0 d-flex justify-content-between'>
+            <div className='row p-0 m-0 d-flex justify-content-between menuM'>
               <button 
                 className='buttonCarouselM col-6 d-flex justify-content-center p-0 m-0 ps-2'
                 type="button" 
@@ -862,7 +862,7 @@ function App() {
                 data-bs-slide="prev"
                 id='buttonMenuM1'
               >
-                <p className='text-start fsize-4w leftMenuItemSelect p-0 m-0 f-barlow-700' >{arrMenuItemSlaids[curMenuItemM]}</p>
+                <p className='text-start fsize-16 leftMenuItemSelect p-0 m-0 f-barlow-700' >{arrMenuItemSlaids[curMenuItemM]}</p>
               </button>
               
               <button 
@@ -872,7 +872,7 @@ function App() {
                 data-bs-slide="next"
                 id='buttonMenuM2'
               >
-                <p className='text-start fsize-4w leftMenuItem p-0 m-0 f-barlow-700'>{arrMenuItemSlaids[nextMenuItemM]}</p>
+                <p className='text-start fsize-16 leftMenuItem p-0 m-0 f-barlow-700'>{arrMenuItemSlaids[nextMenuItemM]}</p>
               </button>
             </div>
 
@@ -883,16 +883,16 @@ function App() {
 
               <div class="carousel-item active" data-bs-interval="10000">
                 <div className='slaidM ms-3 mt-4' id='slaid0'>
-                  <p className="fsize-4 text-start f-glory white ms-2 m-0 p-0">Omni-Chain arbitrage</p>
-                  <p className="fsize-4 text-start f-glory white ms-2 m-0 p-0">DEX Aggregator</p>
-                  <p className="fsize-3 text-start f-barlow-400 white ms-2 mt-2">With copytrading tools and custom RPC</p>
+                  <p className="fsize-32 text-start f-glory white ms-2 m-0 p-0">Omni-Chain arbitrage</p>
+                  <p className="fsize-32 text-start f-glory white ms-2 m-0 p-0">DEX Aggregator</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With copytrading tools and custom RPC</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Track best dealer and</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">copy their trades</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">With most innovative trading tools</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Track best dealer and</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">copy their trades</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With most innovative trading tools</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -905,9 +905,9 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Dont need Gas token</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">in wallet</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Pay in any asset and get cashbacks</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Dont need Gas token</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">in wallet</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">Pay in any asset and get cashbacks</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -920,10 +920,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Make an arbitrage</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">profit</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">At each transaction causing</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">an arb-opportunity</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Make an arbitrage</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">profit</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">At each transaction causing</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">an arb-opportunity</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -936,10 +936,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">The most functional</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">trading terminal</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">With Limit, Take Profit, Stop Loss</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">and Trailling Stop orders</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">The most functional</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">trading terminal</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With Limit, Take Profit, Stop Loss</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">and Trailling Stop orders</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -952,9 +952,43 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Seamless Cross-</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">Chain</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">From Any to Any asset per one transaction</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Seamless Cross-</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">Chain</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">From Any to Any asset per one transaction</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Decentralize protocol</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">Get revenue</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">Become a Protocol Relayer and participate</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">in the execution of trades</p>
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
+                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
+                      <p 
+                        className='p-0 m-0 f-roboto-400'>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div> */}
+
+              <div class="carousel-item" data-bs-interval="2000">
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">MEV protection in any</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">chain</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">Add our RPC to Metamask to catch</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">arbs from multiple DEXes</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -967,42 +1001,10 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Decentralize protocol</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">Get revenue</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Become a Protocol Relayer and participate</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">in the execution of trades</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">MEV protection in any</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">chain</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">Add our RPC to Metamask to catch</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">arbs from multiple DEXes</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Grouping minor</p>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0">orders</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">No more waiting for a long execution</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-2">of a small order</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Grouping minor</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">orders</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">No more waiting for a long execution</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">of a small order</p>
                   {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -1015,8 +1017,8 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-4 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Get best price</p>
-                  <p className="fsize-2 text-start f-barlow-400 white ms-2 mt-4">With liquidity aggregation from multiple DEXes</p>
+                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Get best price</p>
+                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-4">With liquidity aggregation from multiple DEXes</p>
                   {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                       <p 
@@ -1038,13 +1040,13 @@ function App() {
         ): null}
         { !isMobile && !isOrientaionH ?
           (
-            <div className='col-4'>
+            <div className='col-4 pt-5'>
               {/* <p className='text-start white fsize-2 m-0 p-0 mt-5 f-barlow-700'>Join to whitelist</p> */}
-              <p className='text-start white fsize-2 m-0 p-0 mt-5 f-barlow-700'>Beta is live!</p>
+              <p className='text-start white fsize-24 mb-0 p-0 mt-6 f-barlow-700'>Beta is live!</p>
               <p className='text-start white m-0 p-0 f-barlow-400'>subscribe to our social</p>
 
-              <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-5'>
-                <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Announcements</p>
+              <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-4'>
+                <p className='text-start white col-4 m-0 p-0 f-barlow-700 fsize-16'>Announcements</p>
                 {/* <input type='text' className='input-social col-7 f-barlow-400 h-5h border-grey' placeholder='youre @nickname' id='tgnick' value={tgNick} onChange={(e) => setTgNick(e.target.value)}>
                 </input> */}
                 <div className='col-8'>
@@ -1058,7 +1060,7 @@ function App() {
               </div>
 
               <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-3'>
-                <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Limex Twitter</p>
+                <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Twitter</p>
                 <div className='col-8'>
                   <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
                     <svg className='col-1 m-0 p-0 me-2' width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
