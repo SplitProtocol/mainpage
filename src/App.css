@@ -224,6 +224,14 @@
   border: solid 2px #EE9919
 }
 
+.buttonSocialH {
+  background: transparent;
+  height: 8vh;
+  width: 10vw;
+  border-radius: 10px;
+  border: solid 2px #EE9919
+}
+
 .buttonJoin {
   background-color: #EE9919;
   height: 6vh;
@@ -479,7 +487,7 @@ input {
 
 .slaidM {
   
-  height: 25vh;
+  height: 29vh;
   width: 85vw;
   position: relative;
 }
@@ -497,7 +505,7 @@ input {
   position: absolute;
   /* top: 4vh; */
   left: 95vw;
-  height: 25vh;
+  height: 29vh;
   width: 25vw;
 }
 

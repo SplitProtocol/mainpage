@@ -837,7 +837,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Track best dealer and\ncopy their trades'}
                     cardText={'With most innovative trading tools'}
@@ -846,7 +846,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Dont need Gas token\nin wallet'}
                     cardText={'Pay in any asset and get cashbacks'}
@@ -856,7 +856,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Make an arbitrage\nprofit'}
                     cardText={'At each transaction causing\nan arb-opportunity'}
@@ -865,7 +865,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'The most functional\ntrading terminal'}
                     cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'}
@@ -874,7 +874,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Seamless Cross-\nChain'}
                     cardText={'From Any to Any asset per one transaction\n'}
@@ -901,7 +901,7 @@ function App() {
               </div> */}
 
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'MEV protection in any\nchain'}
                     cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'}
@@ -910,7 +910,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Grouping minor\norders'}
                     cardText={'No more waiting for a long execution\nof a small order'}
@@ -919,7 +919,7 @@ function App() {
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
+                <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                   <MobCard 
                     cardTitle={'Get best price\n'}
                     cardText={'With liquidity aggregation from multiple DEXes\n'}

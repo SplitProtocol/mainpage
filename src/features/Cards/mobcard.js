@@ -14,7 +14,7 @@ export function MobCard(props) {
                 <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
                         <p 
-                            className='p-0 m-0 f-roboto-400'>
+                            className='p-0 m-0 f-barlow-700 fsize-12'>
                                 {'Learn more'}
                         </p>
                     </div>
