@@ -28,7 +28,7 @@ function App() {
   const MobileWidth = 1000
   const arrMenuItemSlaids = [
     'Split',
-    'Auto Trading Tools',
+    'Copytrading',
     'Gasless Trade',
     'Swap 2 Earn',
     'Limit Orders',
@@ -235,7 +235,7 @@ function App() {
     }
     
     if (curNumSlaid == '2') {
-      setMenuItemSelect('_item1')
+      setMenuItemSelect('item1')
     }
     else {
       setMenuItemSelect('item' + next_num_slaid.toString())
@@ -271,7 +271,7 @@ function App() {
     }
     
     if (curNumSlaid == '0') {
-      setMenuItemSelect('_item1')
+      setMenuItemSelect('item1')
     }
     else {
 
@@ -539,13 +539,13 @@ function App() {
                   <div id={2} 
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item2': 'd-flex flex-column leftMenuButton item2'} 
                     onClick={() => {
-                      setMenuItemSelect('_item1')
+                      setMenuItemSelect('item1')
                       hideCurrentSlaid(CurrentSlaid)
                       setSlaid('slaid1')
                       setSelectedMenuItem(2)
                     }}>
-                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item1'>Auto Trading</p>
-                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item10'>Tools</p>
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='item1'>Copytrading</p>
+                    {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item10'>Tools</p> */}
                   </div>
                   
                   {/* item 3 */}
@@ -826,7 +826,7 @@ function App() {
 
             <div class="carousel-inner position-relative">
 
-              <div className='nextSlaid bg-slaidM' id='nextM'>
+              <div className='nextSlaid bg-slaidM mt-4' id='nextM'>
               </div>
 
               <div class="carousel-item active" data-bs-interval="10000">

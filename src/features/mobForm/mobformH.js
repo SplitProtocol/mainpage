@@ -2,8 +2,8 @@ export function MobFormH() {
     return (
         <>
             <div className='p-0 m-0 ps-1 pe-4 mt-1'>
-            <p className='text-start white fsize-4 m-0 p-0 ms-2 f-barlow-700'>Beta is live!</p>
-            <p className='text-start white fsize-2 m-0 p-0 ms-2 f-barlow-400'>subscribe to our social</p>
+            <p className='text-start white fsize-24 m-0 p-0 ms-2 f-barlow-700'>Beta is live!</p>
+            <p className='text-start white fsize-16 m-0 p-0 ms-2 f-barlow-400'>subscribe to our social</p>
 
             <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-2'>
               <svg className='col-2 m-0 p-0' width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
