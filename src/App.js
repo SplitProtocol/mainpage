@@ -680,7 +680,7 @@ function App() {
         {isMobile ? null: (
         <div className={isOrientaionH ? 'col-5 pt-3': 'col-5 pt-5'}>
           {/* slaid0 */}
-          <div className={isOrientaionH ? 'slaidH': 'slaid'} id='slaid0'>
+          <div className={isOrientaionH ? 'slaidH': 'slaid'} id='slaid0' onClick={() => {clickArrowDown()}}>
             {/* <p className="fsize-4 text-start f-glory white m-0 p-0">Omni-Chain arbitrage</p>
             <p className="fsize-4 text-start f-glory white m-0 p-0">DEX Aggregator</p> */}
             <p className={isOrientaionH ?
@@ -698,7 +698,7 @@ function App() {
           </div>
 
           {/* slaid1 */}
-          <div className='slaidHide' id='slaid1'>
+          <div className='slaidHide' id='slaid1' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Track best dealer and\ncopy their trades'}
@@ -707,7 +707,7 @@ function App() {
           </div>
           
           {/* slaid2 */}
-          <div className='slaidHide' id='slaid2'>
+          <div className='slaidHide' id='slaid2' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Dont need Gas token\nin wallet'}
@@ -716,7 +716,7 @@ function App() {
           </div>
 
           {/* slaid3 */}
-          <div className='slaidHide' id='slaid3'>
+          <div className='slaidHide' id='slaid3' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Make an arbitrage\nprofit'}
@@ -725,7 +725,7 @@ function App() {
           </div>
 
           {/* slaid4 */}
-          <div className='slaidHide' id='slaid4'>
+          <div className='slaidHide' id='slaid4' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'The most functional\ntrading terminal'}
@@ -734,7 +734,7 @@ function App() {
           </div>
 
           {/* slaid5 */}
-          <div className='slaidHide' id='slaid5'>
+          <div className='slaidHide' id='slaid5' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Seamless Cross\nChain'}
@@ -759,7 +759,7 @@ function App() {
           </div> */}
 
           {/* slaid7 */}
-          <div className='slaidHide' id='slaid6'>
+          <div className='slaidHide' id='slaid6' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'MEV protection in any\nchain'}
@@ -768,7 +768,7 @@ function App() {
           </div>
 
           {/* slaid8 */}
-          <div className='slaidHide' id='slaid7'>
+          <div className='slaidHide' id='slaid7' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Grouping minor\norders'}
@@ -777,7 +777,7 @@ function App() {
           </div>
 
           {/* slaid9 */}
-          <div className='slaidHide' id='slaid8'>
+          <div className='slaidHide' id='slaid8' onClick={() => {clickArrowDown()}}>
             <DesktopCard 
               isOrientaionH={isOrientaionH}
               cardTitle={'Get best price\n'}

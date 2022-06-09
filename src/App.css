@@ -425,6 +425,7 @@ input {
   transform: translateY(50px);
   width: 40vw;
   height: 40vh;
+  cursor: pointer;
   /* width: 522px; */
   /* height: 301px; */
   animation-name: slaidShow;

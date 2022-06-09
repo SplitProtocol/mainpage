@@ -22,7 +22,7 @@ export function DesktopCard(props) {
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
                 <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400 fw-bold'}>
+                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-barlow-700 fw-bold'}>
                   {'Learn more'}
                 </p>
               </div>
