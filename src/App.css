@@ -140,6 +140,10 @@
   font-weight: 400;
 }
 
+.ws {
+  white-space: pre-wrap;
+}
+
 .fsize-24 {
   font-size: 24px;
 }
@@ -334,7 +338,7 @@ input {
 }
 
 .h-menuH {
-  height: 40vh;
+  height: 45vh;
 }
 
 .position-menuH {
@@ -372,6 +376,7 @@ input {
   transform: translateY(50px);
   width: 35vw;
   height: 20vw;
+  padding-top: 3vh;
   /* width: 522px;
   height: 301px; */
 }
@@ -401,7 +406,7 @@ input {
 }
 
 .slaidAnim {
-  padding: 0;
+  padding-top: 3vh;
   margin: 0;
   border-radius: 20px;
   /* overflow: hidden; */
@@ -415,7 +420,7 @@ input {
 }
 
 .slaidAnimH {
-  padding: 0;
+  padding-top: 3vh;
   margin: 0;
   border-radius: 20px;
   /* overflow: hidden; */
@@ -524,22 +529,22 @@ input {
 
 .item2 {
   position: absolute;
-  top: 77px;
+  top: 81px;
 }
 
 .item3 {
   position: absolute;
-  top: 145px;
+  top: 136px;
 }
 
 .item4 {
   position: absolute;
-  top: 196px;
+  top: 190px;
 }
 
 .item5 {
   position: absolute;
-  top: 266px;
+  top: 246px;
 }
 
 .item6 {
@@ -588,7 +593,7 @@ input {
 
 @keyframes moveUp2 {
   0% {
-    top: 77px;
+    top: 81px;
   }
   100% {
     top: 26px;
@@ -597,28 +602,28 @@ input {
 
 @keyframes moveUp3 {
   0% {
-    top: 145px;
+    top: 136px;
   }
   100% {
-    top: 77px;
+    top: 81px;
   }
 }
 
 @keyframes moveUp4 {
   0% {
-    top: 196px;
+    top: 190px;
   }
   100% {
-    top: 145px;
+    top: 136px;
   }
 }
 
 @keyframes moveUp5 {
   0% {
-    top: 266px;
+    top: 246px;
   }
   100% {
-    top: 196px;
+    top: 190px;
   }
 }
 
@@ -627,7 +632,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 266px;
+    top: 246px;
   }
 }
 
@@ -667,40 +672,40 @@ input {
     top: 26px;
   }
   100% {
-    top: 77px;
+    top: 81px;
   }
 }
 
 @keyframes moveDown2 {
   0% {
-    top: 77px;
+    top: 81px;
   }
   100% {
-    top: 145px;
+    top: 136px;
   }
 }
 
 @keyframes moveDown3 {
   0% {
-    top: 145px;
+    top: 136px;
   }
   100% {
-    top: 196px;
+    top: 190px;
   }
 }
 
 @keyframes moveDown4 {
   0% {
-    top: 196px;
+    top: 190px;
   }
   100% {
-    top: 266px;
+    top: 246px;
   }
 }
 
 @keyframes moveDown5 {
   0% {
-    top: 266px;
+    top: 246px;
   }
   100% {
     top: 310px;
@@ -866,7 +871,7 @@ input {
 
 @keyframes moveUp2-2 {
   0% {
-    top: 77px;
+    top: 81px;
   }
   100% {
     top: -170px;
@@ -875,7 +880,7 @@ input {
 
 @keyframes moveUp2-1 {
   0% {
-    top: 77px;
+    top: 81px;
   }
   100% {
     top: -110px;
@@ -884,7 +889,7 @@ input {
 
 @keyframes moveUp20 {
   0% {
-    top: 77px;
+    top: 81px;
   }
   100% {
     top: -50px;
@@ -893,7 +898,7 @@ input {
 
 @keyframes moveUp3-1 {
   0% {
-    top: 145px;
+    top: 136px;
   }
   100% {
     top: -110px;
@@ -902,7 +907,7 @@ input {
 
 @keyframes moveUp30 {
   0% {
-    top: 145px;
+    top: 136px;
   }
   100% {
     top: -50px;
@@ -911,7 +916,7 @@ input {
 
 @keyframes moveUp31 {
   0% {
-    top: 145px;
+    top: 136px;
   }
   100% {
     top: 26px;
@@ -920,7 +925,7 @@ input {
 
 @keyframes moveUp40 {
   0% {
-    top: 196px;
+    top: 190px;
   }
   100% {
     top: -50px;
@@ -929,7 +934,7 @@ input {
 
 @keyframes moveUp41 {
   0% {
-    top: 196px;
+    top: 190px;
   }
   100% {
     top: 26px;
@@ -938,16 +943,16 @@ input {
 
 @keyframes moveUp42 {
   0% {
-    top: 196px;
+    top: 190px;
   }
   100% {
-    top: 77px;
+    top: 81px;
   }
 }
 
 @keyframes moveUp51 {
   0% {
-    top: 266px;
+    top: 246px;
   }
   100% {
     top: 26px;
@@ -956,19 +961,19 @@ input {
 
 @keyframes moveUp52 {
   0% {
-    top: 266px;
+    top: 246px;
   }
   100% {
-    top: 77px;
+    top: 81px;
   }
 }
 
 @keyframes moveUp53 {
   0% {
-    top: 266px;
+    top: 246px;
   }
   100% {
-    top: 145px;
+    top: 136px;
   }
 }
 
@@ -977,7 +982,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 77px;
+    top: 81px;
   }
 }
 
@@ -986,7 +991,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 145px;
+    top: 136px;
   }
 }
 
@@ -995,7 +1000,7 @@ input {
     top: 310px;
   }
   100% {
-    top: 196px;
+    top: 190px;
   }
 }
 
@@ -1004,7 +1009,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 145px;
+    top: 136px;
   }
 }
 
@@ -1013,7 +1018,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 196px;
+    top: 190px;
   }
 }
 
@@ -1022,7 +1027,7 @@ input {
     top: 370px;
   }
   100% {
-    top: 266px;
+    top: 246px;
   }
 }
 
@@ -1031,7 +1036,7 @@ input {
     top: 430px;
   }
   100% {
-    top: 196px;
+    top: 190px;
   }
 }
 
@@ -1040,7 +1045,7 @@ input {
     top: 430px;
   }
   100% {
-    top: 266px;
+    top: 246px;
   }
 }
 
@@ -1049,6 +1054,6 @@ input {
     top: 490px;
   }
   100% {
-    top: 266px;
+    top: 246px;
   }
 }

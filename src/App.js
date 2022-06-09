@@ -14,6 +14,8 @@ import slaid0 from './static/0.png'
 
 import { MobForm} from './features/mobForm/mobform';
 import { MobFormH } from './features/mobForm/mobformH';
+import { DesktopCard } from './features/Cards/desktopcard';
+import { MobCard } from './features/Cards/mobcard';
 
 import './App.css';
 
@@ -480,8 +482,8 @@ function App() {
               <p 
                 className={isMobile ? 
                   ('p-0 m-0 f-barlow-700 fsize-12 ww '):
-                  ('p-0 m-0 f-roboto-400')}>
-                {'Connect wallet'}
+                  ('p-0 m-0 f-roboto-400 fw-bold')}>
+                {'Launch app'}
               </p>
             </div>
 
@@ -496,7 +498,7 @@ function App() {
 
         {/* left menu */}
         {isMobile ? null: (
-          <div className={isOrientaionH ? 'col-2 ms-5 mt-1': 'col-2 ms-5 mt-5'}>
+          <div className={isOrientaionH ? 'col-2 ms-5 mt-0': 'col-2 ms-4 mt-5'}>
 
             {/* arrowtop */}
             {!isOrientaionH || true ? (
@@ -513,7 +515,7 @@ function App() {
 
             {/* MENU ITEMS */}
 
-            <div className={isOrientaionH ? 'h-menuH overflow-hidden mb-4 ': 'h-menu ps-3 overflow-hidden mt-4 mb-4 mx-2'}>
+            <div className={isOrientaionH ? 'h-menuH overflow-hidden mb-1 ': 'h-menu ps-3 overflow-hidden mt-4 mb-4 mx-2'}>
               <div id='menu' className='position-relative'>
                 <div className=''>
                   {/* item 1 */}
@@ -526,7 +528,7 @@ function App() {
                       setSelectedMenuItem(1)
                     }}
                   >
-                    <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-4h': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'} 
+                    <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16'} 
                         id='item0'
                     >
                         {'Split'}
@@ -542,8 +544,8 @@ function App() {
                       setSlaid('slaid1')
                       setSelectedMenuItem(2)
                     }}>
-                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item1'>Auto Trading</p>
-                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item10'>Tools</p>
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item1'>Auto Trading</p>
+                    <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item10'>Tools</p>
                   </div>
                   
                   {/* item 3 */}
@@ -662,7 +664,7 @@ function App() {
 
             {/* arrow down */}
             {!isOrientaionH || true ? (
-            <div className={isOrientaionH ? 'w-50 mt-2': 'w-9 mx-2'}>
+            <div className={isOrientaionH ? 'w-9 mx-2': 'w-9 mx-2'}>
               <svg className='arrowButton' width="29" height="16" viewBox="0 0 29 16" fill="none" xmlns="http://www.w3.org/2000/svg"
                 onClick={() => {
                   clickArrowDown()
@@ -676,98 +678,68 @@ function App() {
         )}
 
         {isMobile ? null: (
-        <div className='col-5 pt-5'>
+        <div className={isOrientaionH ? 'col-5 pt-3': 'col-5 pt-5'}>
           {/* slaid0 */}
           <div className={isOrientaionH ? 'slaidH': 'slaid'} id='slaid0'>
-            <p className="fsize-4 text-start f-glory white m-0 p-0">Omni-Chain arbitrage</p>
-            <p className="fsize-4 text-start f-glory white m-0 p-0">DEX Aggregator</p>
-            <p className="fsize-2 text-start f-barlow-400 white mt-2">With copytrading tools and custom RPC</p>
+            {/* <p className="fsize-4 text-start f-glory white m-0 p-0">Omni-Chain arbitrage</p>
+            <p className="fsize-4 text-start f-glory white m-0 p-0">DEX Aggregator</p> */}
+            <p className={isOrientaionH ?
+              'fsize-32 text-start f-barlow-700 white ms-3 m-0 p-0 ws lh-sm':
+              "fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 ws"}
+            >
+              {'Omni-Chain arbitrage DEX'}
+            </p>
+            <p className={isOrientaionH ?
+              'fsize-12 text-start f-barlow-400 white ms-3 mt-5':
+              "fsize-2 text-start f-barlow-400 white ms-3 mt-5"}
+            >
+              {'With copytrading tools and custom RPC\n'}
+            </p>
           </div>
 
           {/* slaid1 */}
           <div className='slaidHide' id='slaid1'>
-            {/* <img className='rounded w-100' src={slaid1} /> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Track best dealer and</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">copy their trades</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With most innovative trading tools</p> 
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p> 
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Track best dealer and\ncopy their trades'}
+              cardText={'With most innovative trading tools\n'} 
+            />
           </div>
           
           {/* slaid2 */}
           <div className='slaidHide' id='slaid2'>
-            {/* <img className='rounded w-100' src={slaid2} /> */}
-            
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Dont need Gas token</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">in wallet</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Pay in any asset and get cashbacks</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2 h-10p"> </p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Dont need Gas token\nin wallet'}
+              cardText={'Pay in any asset and get cashbacks\n'} 
+            />
           </div>
 
           {/* slaid3 */}
           <div className='slaidHide' id='slaid3'>
-            {/* <img className='rounded w-100' src={slaid3} /> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Make an arbitrage</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">profit</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">At each transaction causing</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">an arb-opportunity</p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Make an arbitrage\nprofit'}
+              cardText={'At each transaction causing\nan arb-opportunity'} 
+            />
           </div>
 
           {/* slaid4 */}
           <div className='slaidHide' id='slaid4'>
-            {/* <img className='rounded w-100' src={slaid4} /> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">The most functional</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">trading terminal</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With Limit, Take Profit, Stop Loss</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">and Trailling Stop orders</p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'The most functional\ntrading terminal'}
+              cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'} 
+            />
           </div>
 
           {/* slaid5 */}
           <div className='slaidHide' id='slaid5'>
-            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Seamless Cross-</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">Chain</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">From Any to Any asset per one transaction</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Seamless Cross\nChain'}
+              cardText={'From Any to Any asset per one transaction\n'} 
+            />
           </div>
 
           {/* slaid6 */}
@@ -788,53 +760,29 @@ function App() {
 
           {/* slaid7 */}
           <div className='slaidHide' id='slaid6'>
-            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">MEV protection in any</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">chain</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">Add our RPC to Metamask to catch</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">arbs from multiple DEXes</p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'MEV protection in any\nchain'}
+              cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'} 
+            />
           </div>
 
           {/* slaid8 */}
           <div className='slaidHide' id='slaid7'>
-            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Grouping minor</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0">orders</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">No more waiting for a long execution</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">of a small order</p>
-            {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div> */}
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Grouping minor\norders'}
+              cardText={'No more waiting for a long execution\nof a small order'} 
+            />
           </div>
 
           {/* slaid9 */}
           <div className='slaidHide' id='slaid8'>
-            {/* <img className='rounded w-100' src={slaidNext} id='imgslaidnext'/> */}
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap">Get best price</p>
-            <p className="fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 text-nowrap h-1"> </p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">With liquidity aggregation from multiple DEXes</p>
-            <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2"> </p>
-            {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div> */}
+            <DesktopCard 
+              isOrientaionH={isOrientaionH}
+              cardTitle={'Get best price\n'}
+              cardText={'With liquidity aggregation from multiple DEXes\n'} 
+            />
           </div>
 
           {/* nextSlaid */}
@@ -890,79 +838,48 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Track best dealer and</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">copy their trades</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With most innovative trading tools</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'Track best dealer and\ncopy their trades'}
+                    cardText={'With most innovative trading tools'}
+                    isButton={true}
+                  />
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Dont need Gas token</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">in wallet</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">Pay in any asset and get cashbacks</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'Dont need Gas token\nin wallet'}
+                    cardText={'Pay in any asset and get cashbacks'}
+                    isButton={true}
+                  />
+                  
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Make an arbitrage</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">profit</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">At each transaction causing</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">an arb-opportunity</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'Make an arbitrage\nprofit'}
+                    cardText={'At each transaction causing\nan arb-opportunity'}
+                    isButton={true}
+                  />
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">The most functional</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">trading terminal</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With Limit, Take Profit, Stop Loss</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">and Trailling Stop orders</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'The most functional\ntrading terminal'}
+                    cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'}
+                    isButton={true}
+                  />
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Seamless Cross-</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">Chain</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">From Any to Any asset per one transaction</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'Seamless Cross-\nChain'}
+                    cardText={'From Any to Any asset per one transaction\n'}
+                    isButton={true}
+                  />
                 </div>
               </div>
 
@@ -985,48 +902,29 @@ function App() {
 
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">MEV protection in any</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">chain</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">Add our RPC to Metamask to catch</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">arbs from multiple DEXes</p>
-                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div>
+                  <MobCard 
+                    cardTitle={'MEV protection in any\nchain'}
+                    cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'}
+                    isButton={true}
+                  />
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Grouping minor</p>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0">orders</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">No more waiting for a long execution</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">of a small order</p>
-                  {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div> */}
+                  <MobCard 
+                    cardTitle={'Grouping minor\norders'}
+                    cardText={'No more waiting for a long execution\nof a small order'}
+                    isButton={false}
+                  />
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1' id='slaid1'>
-                  <p className="fsize-32 text-start f-barlow-700 white ms-2 m-0 p-0 text-nowrap">Get best price</p>
-                  <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-4">With liquidity aggregation from multiple DEXes</p>
-                  {/* <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-5'>
-                    <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
-                        className='p-0 m-0 f-roboto-400'>
-                        {'Learn more'}
-                      </p>
-                    </div>
-                  </div> */}
+                  <MobCard 
+                    cardTitle={'Get best price\n'}
+                    cardText={'With liquidity aggregation from multiple DEXes\n'}
+                    isButton={false}
+                  />
                 </div>
               </div>
             </div>
@@ -1059,7 +957,7 @@ function App() {
                 </div>
               </div>
 
-              <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-3'>
+              <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>
                 <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Twitter</p>
                 <div className='col-8'>
                   <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
@@ -1075,7 +973,7 @@ function App() {
                 </input> */}
               </div>
 
-              <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-3'>
+              <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>
                 
                 <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Community</p>
                 <div className='col-8'>
