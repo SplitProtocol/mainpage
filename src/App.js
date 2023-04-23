@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import bootstrap from 'bootstrap'
-import logo from './logo.svg';
-import limexText from './static/limex.png'
+// import bootstrap from 'bootstrap'
+// import logo from './logo.svg';
+// import limexText from './static/limex.png'
 import bgvideo from './static/bg.mp4'
 import logoImg from './static/SplitLogo.png'
 import logoCat from './static/cat1.png'
 // import { Counter } from './features/counter/Counter';
-import slaid1 from './static/1.jpg'
-import slaid2 from './static/2.jpg'
-import slaid3 from './static/3.jpg'
-import slaid4 from './static/4.jpg'
-import slaid0 from './static/0.png'
+// import slaid1 from './static/1.jpg'
+// import slaid2 from './static/2.jpg'
+// import slaid3 from './static/3.jpg'
+// import slaid4 from './static/4.jpg'
+// import slaid0 from './static/0.png'
 
 import { MobForm} from './features/mobForm/mobform';
 import { MobFormH } from './features/mobForm/mobformH';
@@ -24,8 +24,8 @@ function App() {
   
   const [isMobile, setIsMobile] = useState(false)
   const [isOrientaionH, setIsOrientaionH] = useState(false)
-  const [widthH, setWidthH] = useState(0)
-  const MobileWidth = 1000
+  // const [widthH, setWidthH] = useState(0)
+  // const MobileWidth = 1000
   const arrMenuItemSlaids = [
     'Split',
     'Copytrading',
@@ -39,12 +39,12 @@ function App() {
   ]
   const [curMenuItemM, setcurMenuItemM] = useState(0)
   const [nextMenuItemM, setnextMenuItemM] = useState(1)
-  const [slaidNext, setslaidNext] = useState(slaid1)
+  // const [slaidNext, setslaidNext] = useState(slaid1)
 
-  const [tgNick, setTgNick] = useState('')
-  const [twNick, setTwNick] = useState('')
-  const [rtwNick, setRtwNick] = useState('')
-  const [dscNick, setDscNick] = useState('')
+  // const [tgNick, setTgNick] = useState('')
+  // const [twNick, setTwNick] = useState('')
+  // const [rtwNick, setRtwNick] = useState('')
+  // const [dscNick, setDscNick] = useState('')
 
   
 
@@ -58,21 +58,21 @@ function App() {
     4:['move1-3', 'move2-2', 'move3-1', 'move40', 'move51', 'move62', 'move73', 'move84', 'move95'],
   }
 
-  function sleep(milliseconds) {
-    var t = (new Date()).getTime();
-    var i = 0;
-    while (((new Date()).getTime() - t) < milliseconds) {
-      i++;
-    }
-  }
+  // function sleep(milliseconds) {
+  //   var t = (new Date()).getTime();
+  //   var i = 0;
+  //   while (((new Date()).getTime() - t) < milliseconds) {
+  //     i++;
+  //   }
+  // }
 
   function setSelectedMenuItem(num_item) {
     SelectedMenuItem = placeMenuItem.indexOf(num_item) + 1
     if (!isOrientaionH || true) {
-      if (SelectedMenuItem == 2) {
+      if (SelectedMenuItem === 2) {
         moveMenuUp()
       }
-      else if (SelectedMenuItem != 1) {
+      else if (SelectedMenuItem !== 1) {
         moveMenuUpStep(SelectedMenuItem)
       }
       SelectedMenuItem = 1
@@ -114,7 +114,7 @@ function App() {
       let n = placeMenuItem[i]
       let num = (i+1).toString()
       let nextnum = (i).toString()
-      if (i == 0) {
+      if (i === 0) {
         nextnum = '6'
       }
       
@@ -167,31 +167,31 @@ function App() {
     console.log('placeMenuItem', placeMenuItem, step-1)   
   }
 
-  function refreshSlaidNext(numSlaid) {
-      let imgslaid = document.getElementById('imgslaidnext')
-      if (numSlaid == '4') {
-        imgslaid.src = slaid0
-      }
-      else if (numSlaid == '0') {
-        imgslaid.src = slaid1
-      }
-      else if (numSlaid == '1') {
-        imgslaid.src = slaid2
-      }
-      else if (numSlaid == '2') {
-        imgslaid.src = slaid3
-      }
-      else if (numSlaid == '3') {
-        imgslaid.src = slaid4
-      }
-  }
+  // function refreshSlaidNext(numSlaid) {
+  //     let imgslaid = document.getElementById('imgslaidnext')
+  //     if (numSlaid == '4') {
+  //       imgslaid.src = slaid0
+  //     }
+  //     else if (numSlaid == '0') {
+  //       imgslaid.src = slaid1
+  //     }
+  //     else if (numSlaid == '1') {
+  //       imgslaid.src = slaid2
+  //     }
+  //     else if (numSlaid == '2') {
+  //       imgslaid.src = slaid3
+  //     }
+  //     else if (numSlaid == '3') {
+  //       imgslaid.src = slaid4
+  //     }
+  // }
 
   function setSlaid(slaid) {
     
     // refreshSlaidNext(slaid.slice(-1))
     if (isOrientaionH) {
       document.getElementById(slaid).className = 'slaidH'
-      if (slaid == 'slaid0') {
+      if (slaid === 'slaid0') {
         document.getElementById(slaid).className = 'slaidAnimH me-0'
       }
       else {
@@ -201,7 +201,7 @@ function App() {
     }
     else {
       document.getElementById(slaid).className = 'slaid'
-      if (slaid == 'slaid0') {
+      if (slaid === 'slaid0') {
         document.getElementById(slaid).className = 'slaidAnim me-0'
       }
       else {
@@ -250,7 +250,7 @@ function App() {
 
   function clickArrowDown() {
     console.log('cur', SelectedMenuItem)
-    if (SelectedMenuItem == 1) {
+    if (SelectedMenuItem === 1) {
       console.log('down')
       moveMenuUp()
     }
@@ -263,14 +263,14 @@ function App() {
 
     let num_slaid = parseInt(curNumSlaid)
     let next_num_slaid = num_slaid + 1
-    if (next_num_slaid == 9) {next_num_slaid = 0}
+    if (next_num_slaid === 9) {next_num_slaid = 0}
 
     let sld = 'slaid0'
-    if (num_slaid != 8) {
+    if (num_slaid !== 8) {
       sld = 'slaid' + next_num_slaid.toString()
     }
     
-    if (curNumSlaid == '0') {
+    if (curNumSlaid === '0') {
       setMenuItemSelect('item1')
     }
     else {
@@ -289,12 +289,12 @@ function App() {
   function setMenuItemSelect(itemMenu) {
 
     document.getElementById(CurentMenuItem).className = 'text-start leftMenuItem p-0 m-0 f-barlow-700'
-    if (CurentMenuItem[0] == '_') {
+    if (CurentMenuItem[0] === '_') {
       document.getElementById(CurentMenuItem + '0').className = 'text-start leftMenuItem p-0 m-0 f-barlow-700'
     }
     
     document.getElementById(itemMenu).className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
-    if (itemMenu[0] == '_') {
+    if (itemMenu[0] === '_') {
       document.getElementById(itemMenu + '0').className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
     }
     
@@ -414,7 +414,7 @@ function App() {
   useEffect(() => {
     let h = window.innerHeight
     let w = window.innerWidth
-    setWidthH(w)
+    // setWidthH(w)
     console.log(w/h)
     if (w/h > 1 && h < 600) {
       setIsMobile(false)
@@ -446,7 +446,7 @@ function App() {
         <div 
           className={isMobile ? ('col-1 p-0 m-0 ms-3'): 
                                 ('col-1 d-flex justify-content-end p-0 m-0')}>
-          <img className={isMobile ? ('logoImgM'): ('logoImg')} src={logoImg} />
+          <img className={isMobile ? ('logoImgM'): ('logoImg')} src={logoImg} alt=""/>
         </div>  
 
         {isMobile ? null: (
@@ -470,7 +470,7 @@ function App() {
             </div>
             
             <div className='col-2'>
-              <img className='logoCat' src={logoCat}/>
+              <img className='logoCat' src={logoCat} alt=""/>
             </div>
 
             {/* <div className='col-1'>
