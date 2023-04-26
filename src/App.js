@@ -716,6 +716,7 @@ function App() {
               isOrientaionH={isOrientaionH}
               cardTitle={'Track best dealer and\ncopy their trades'}
               cardText={'With most innovative trading tools\n'}
+              link="https://split-docs.gitbook.io/docs/features/copytrading"
             />
           </div>
 
