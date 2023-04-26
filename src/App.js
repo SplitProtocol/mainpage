@@ -18,10 +18,12 @@ import { DesktopCard } from './features/Cards/desktopcard';
 import { MobCard } from './features/Cards/mobcard';
 
 import './App.css';
+import {NetworksDropdown} from "./components";
+import {GitbookLogo, MediumLogo} from "./icons";
 
 
 function App() {
-  
+
   const [isMobile, setIsMobile] = useState(false)
   const [isOrientaionH, setIsOrientaionH] = useState(false)
   // const [widthH, setWidthH] = useState(0)
@@ -46,7 +48,7 @@ function App() {
   // const [rtwNick, setRtwNick] = useState('')
   // const [dscNick, setDscNick] = useState('')
 
-  
+
 
   let CurrentSlaid = 'slaid0'
   let CurentMenuItem = 'item0'
@@ -84,7 +86,7 @@ function App() {
       let n = placeMenuItem[i]
       let num = (i+1).toString()
       let nextnum = (i+2).toString()
-      
+
       let item = document.getElementById(n)
         item.classList.add('moved' + num)
         setTimeout(() => {
@@ -104,9 +106,9 @@ function App() {
     let buf = placeMenuItem[8]
     for (let i=8; i>0; i--) {
       placeMenuItem[i] = placeMenuItem[i - 1]
-    }    
-    placeMenuItem[0] = buf  
-    console.log('placeMenuItem', placeMenuItem)  
+    }
+    placeMenuItem[0] = buf
+    console.log('placeMenuItem', placeMenuItem)
   }
 
   function moveMenuUp() {
@@ -117,7 +119,7 @@ function App() {
       if (i === 0) {
         nextnum = '6'
       }
-      
+
       let item = document.getElementById(n)
         item.classList.add('move' + num)
         setTimeout(() => {
@@ -130,9 +132,9 @@ function App() {
     let buf = placeMenuItem[0]
     for (let i=0; i<8; i++) {
       placeMenuItem[i] = placeMenuItem[i + 1]
-    }    
-    placeMenuItem[8] = buf  
-    console.log('placeMenuItem', placeMenuItem)  
+    }
+    placeMenuItem[8] = buf
+    console.log('placeMenuItem', placeMenuItem)
   }
 
   function moveMenuUpStep(step) {
@@ -163,8 +165,8 @@ function App() {
       else {
         placeMenuItem[i] = arr[i + step-1]
       }
-    }   
-    console.log('placeMenuItem', placeMenuItem, step-1)   
+    }
+    console.log('placeMenuItem', placeMenuItem, step-1)
   }
 
   // function refreshSlaidNext(numSlaid) {
@@ -187,7 +189,7 @@ function App() {
   // }
 
   function setSlaid(slaid) {
-    
+
     // refreshSlaidNext(slaid.slice(-1))
     if (isOrientaionH) {
       document.getElementById(slaid).className = 'slaidH'
@@ -197,7 +199,7 @@ function App() {
       else {
         document.getElementById(slaid).className = 'slaidAnimH me-0 bg-slaid'
       }
-      
+
     }
     else {
       document.getElementById(slaid).className = 'slaid'
@@ -208,7 +210,7 @@ function App() {
         document.getElementById(slaid).className = 'slaidAnim me-0 bg-slaid'
       }
     }
-    
+
     CurrentSlaid = slaid
   }
 
@@ -233,7 +235,7 @@ function App() {
     if (num_slaid != 0) {
       sld = 'slaid' + next_num_slaid.toString()
     }
-    
+
     if (curNumSlaid == '2') {
       setMenuItemSelect('item1')
     }
@@ -269,7 +271,7 @@ function App() {
     if (num_slaid !== 8) {
       sld = 'slaid' + next_num_slaid.toString()
     }
-    
+
     if (curNumSlaid === '0') {
       setMenuItemSelect('item1')
     }
@@ -292,12 +294,12 @@ function App() {
     if (CurentMenuItem[0] === '_') {
       document.getElementById(CurentMenuItem + '0').className = 'text-start leftMenuItem p-0 m-0 f-barlow-700'
     }
-    
+
     document.getElementById(itemMenu).className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
     if (itemMenu[0] === '_') {
       document.getElementById(itemMenu + '0').className = 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700'
     }
-    
+
     CurentMenuItem = itemMenu
   }
 
@@ -331,7 +333,7 @@ function App() {
               setcurMenuItemM(e.from + 1)
               if (e.from + 1 == 8) {
                 setnextMenuItemM(0)
-              } 
+              }
               else {
                 setnextMenuItemM(e.from + 2)
               }
@@ -352,7 +354,7 @@ function App() {
       })
 
       myCarousel.addEventListener('slid.bs.carousel', function (e) {
-        
+
         document.getElementById('nextM').style.display = 'block'
         // if (e.direction == 'left') {
         //   if (e.from == 4) {
@@ -362,7 +364,7 @@ function App() {
         //     setcurMenuItemM(e.from + 1)
         //     if (e.from + 1 == 4) {
         //       document.getElementById('nextSlaid').src = slaid0
-        //     } 
+        //     }
         //     else {
         //       if (e.from == 1) {
         //         document.getElementById('nextSlaid').src = slaid3
@@ -391,7 +393,7 @@ function App() {
       })
 
     }
-    
+
   }, [isMobile])
 
   useEffect(() => {
@@ -407,7 +409,7 @@ function App() {
         setIsMobile(window.innerWidth < 1000)
         setIsOrientaionH(false)
       }
-      
+
     })
   })
 
@@ -439,59 +441,70 @@ function App() {
       </div>): null}
 
       {/* logo navbar */}
-      <div 
-        className={isMobile ? ('row mt-4 d-flex align-items-center p-0 m-0'): 
+      <div
+        className={isMobile ? ('row mt-4 d-flex align-items-center p-0 m-0'):
                               ('w-100 row mt-3 d-flex align-items-center')}>
 
-        <div 
-          className={isMobile ? ('col-1 p-0 m-0 ms-3'): 
+        <div
+          className={isMobile ? ('col-1 p-0 m-0 ms-3'):
                                 ('col-1 d-flex justify-content-end p-0 m-0')}>
           <img className={isMobile ? ('logoImgM'): ('logoImg')} src={logoImg} alt=""/>
-        </div>  
+        </div>
 
         {isMobile ? null: (
           <p className='f-righteous-400 white col-2 m-0 p-0 mt-2 fsize-3 ta-s'>{''}</p>
         )}
 
-        <div className={isMobile ? 
-          ('col-10 d-flex justify-content-center'): 
-          ('col-9 my-3 d-flex justify-content-end')}> 
+        <div className={isMobile ?
+          ('col-10 d-flex justify-content-center'):
+          ('col-9 my-3 d-flex justify-content-end')}>
 
-          <div className={isMobile || isOrientaionH ? 
-            ('row d-flex align-items-center justify-content-end p-0 m-0 w-100'): 
+          <div className={isMobile || isOrientaionH ?
+            ('row d-flex align-items-center justify-content-end p-0 m-0 w-100'):
             ('row w-50 d-flex align-items-center justify-content-center')}>
 
-            <div className={isMobile ? 
-              ('col-2 d-flex justify-content-end align-items-center p-0 m-0'): 
-              ('col-2 d-flex justify-content-end align-items-center')}>
-              <p className={isOrientaionH ? 'docsButton fsize-4h p-0 m-0 f-barlow-500 white': 'docsButton fsize-16 p-0 m-0 f-barlow-500 white'}>
-                {'Docs'}
-              </p>
+            <div className="col-2 d-flex justify-content-end">
+              <a href="https://medium.com/@split.protocol" target="_blank">
+                <MediumLogo />
+              </a>
             </div>
-            
+
+            <div className={isMobile ?
+              ('col-2 d-flex justify-content-end align-items-center p-0 m-0'):
+              ('col-2 d-flex justify-content-end align-items-center')}>
+              <a href="https://split-docs.gitbook.io/docs/" target="_blank">
+                <GitbookLogo />
+              </a>
+            </div>
+
             <div className='col-2'>
-              <img className='logoCat' src={logoCat} alt=""/>
+              <a href="https://github.com/SplitProtocol" target="_blank">
+                <img className='logoCat' src={logoCat} alt=""/>
+              </a>
             </div>
 
             {/* <div className='col-1'>
             </div> */}
 
-            <div className={isMobile || isOrientaionH ? 
-              ('buttonConnectWalletM col-8 d-flex align-items-center justify-content-center p-0 m-0 h-32'):
-              ('buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-2')}>
-              <p 
-                className={isMobile ? 
-                  ('p-0 m-0 f-barlow-700 fsize-12 ww '):
-                  ('p-0 m-0 f-roboto-400 fw-bold')}>
-                {'Launch app'}
-              </p>
+            <div className={isMobile || isOrientaionH ? 'col-6' : 'col-6'}>
+              <NetworksDropdown>
+                <div className={isMobile || isOrientaionH ?
+                  ('buttonConnectWalletM d-flex align-items-center justify-content-center p-0 m-0 h-32'):
+                  ('buttonConnectWallet d-flex align-items-center justify-content-center mx-2')}>
+                  <p
+                    className={isMobile ?
+                      ('p-0 m-0 f-barlow-700 fsize-12 vw '):
+                      ('p-0 m-0 f-roboto-400 fw-bold')}>
+                    Split RPC
+                  </p>
+                </div>
+              </NetworksDropdown>
             </div>
-
           </div>
-          
+
         </div>
       </div>
-      
+
 
       {/* body */}
       <div className={isMobile ? ('mt-3'): isOrientaionH ? 'row mt-0': 'row mt-5'}>
@@ -510,7 +523,7 @@ function App() {
               >
                 <path d="M1 15.5L14.5 2L28 15.5" stroke="white" stroke-width="2"/>
               </svg>
-              
+
             </div>) : null}
 
             {/* MENU ITEMS */}
@@ -519,8 +532,8 @@ function App() {
               <div id='menu' className='position-relative'>
                 <div className=''>
                   {/* item 1 */}
-                  <div id={1} 
-                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 item1': 'd-flex flex-column leftMenuButton item1'} 
+                  <div id={1}
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 item1': 'd-flex flex-column leftMenuButton item1'}
                     onClick={() => {
                       setMenuItemSelect('item0')
                       hideCurrentSlaid(CurrentSlaid)
@@ -528,7 +541,7 @@ function App() {
                       setSelectedMenuItem(1)
                     }}
                   >
-                    <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16'} 
+                    <p  className={isOrientaionH ? 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16': 'text-start leftMenuItemSelect p-0 m-0 f-barlow-700 fsize-16'}
                         id='item0'
                     >
                         {'Split'}
@@ -536,8 +549,8 @@ function App() {
                   </div>
 
                   {/* item 2 */}
-                  <div id={2} 
-                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item2': 'd-flex flex-column leftMenuButton item2'} 
+                  <div id={2}
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item2': 'd-flex flex-column leftMenuButton item2'}
                     onClick={() => {
                       setMenuItemSelect('item1')
                       hideCurrentSlaid(CurrentSlaid)
@@ -547,11 +560,11 @@ function App() {
                     <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='item1'>Copytrading</p>
                     {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700 fsize-16' id='_item10'>Tools</p> */}
                   </div>
-                  
+
                   {/* item 3 */}
-                  <div 
+                  <div
                     id={3}
-                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item3': 'd-flex flex-column leftMenuButton item3'}  
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item3': 'd-flex flex-column leftMenuButton item3'}
                     onClick={() => {
                       setMenuItemSelect('item2')
                       hideCurrentSlaid(CurrentSlaid)
@@ -563,8 +576,8 @@ function App() {
                   </div>
 
                   {/* item 4 */}
-                  <div id={4} 
-                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item4': 'd-flex flex-column leftMenuButton item4'} 
+                  <div id={4}
+                    className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item4': 'd-flex flex-column leftMenuButton item4'}
                     onClick={() => {
                       setMenuItemSelect('item3')
                       hideCurrentSlaid(CurrentSlaid)
@@ -575,9 +588,9 @@ function App() {
                     <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='item3'>{'Swap 2 Earn'}</p>
                     {/* <p className='text-start leftMenuItem p-0 m-0 f-barlow-700' id='_item30'>{'make money'}</p> */}
                   </div>
-                  
+
                   {/* item 5 */}
-                  <div id={5} 
+                  <div id={5}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item5': 'd-flex flex-column leftMenuButton item5'}
                     onClick={() => {
                       setMenuItemSelect('item4')
@@ -591,7 +604,7 @@ function App() {
                   </div>
 
                   {/* item 6 */}
-                  <div id={6} 
+                  <div id={6}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
                     onClick={() => {
                       setMenuItemSelect('item5')
@@ -605,7 +618,7 @@ function App() {
                   </div>
 
                   {/* item 7 */}
-                  {/* <div id={7} 
+                  {/* <div id={7}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
                     onClick={() => {
                       setMenuItemSelect('item6')
@@ -618,7 +631,7 @@ function App() {
                   </div> */}
 
                   {/* item 8 */}
-                  <div id={7} 
+                  <div id={7}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
                     onClick={() => {
                       setMenuItemSelect('item6')
@@ -632,7 +645,7 @@ function App() {
                   </div>
 
                   {/* item 9 */}
-                  <div id={8} 
+                  <div id={8}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
                     onClick={() => {
                       setMenuItemSelect('item7')
@@ -646,7 +659,7 @@ function App() {
                   </div>
 
                   {/* item 10 */}
-                  <div id={9} 
+                  <div id={9}
                     className={isOrientaionH ? 'd-flex flex-column leftMenuButton mt-1 fsize-4h item6': 'd-flex flex-column leftMenuButton item6'}
                     onClick={() => {
                       setMenuItemSelect('item8')
@@ -674,7 +687,7 @@ function App() {
               </svg>
             </div>): null}
 
-          </div> 
+          </div>
         )}
 
         {isMobile ? null: (
@@ -687,7 +700,7 @@ function App() {
               'fsize-32 text-start f-barlow-700 white ms-3 m-0 p-0 ws lh-sm':
               "fsize-4 text-start f-barlow-700 white ms-3 m-0 p-0 ws"}
             >
-              {'Omni-Chain arbitrage DEX'}
+              {'Omni-Chain MEV DEX aggregator'}
             </p>
             <p className={isOrientaionH ?
               'fsize-12 text-start f-barlow-400 white ms-3 mt-5':
@@ -699,46 +712,50 @@ function App() {
 
           {/* slaid1 */}
           <div className='slaidHide' id='slaid1' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Track best dealer and\ncopy their trades'}
-              cardText={'With most innovative trading tools\n'} 
+              cardText={'With most innovative trading tools\n'}
             />
           </div>
-          
+
           {/* slaid2 */}
           <div className='slaidHide' id='slaid2' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Dont need Gas token\nin wallet'}
-              cardText={'Pay in any asset and get cashbacks\n'} 
+              cardText={'Pay in any asset and get cashbacks\n'}
+              link="https://split-docs.gitbook.io/docs/features/gasless-trade"
             />
           </div>
 
           {/* slaid3 */}
-          <div className='slaidHide' id='slaid3' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+          <div className='slaidHide' id='slaid3' onClick={() => {clickArrowDown()}} onClick={() => {clickArrowDown()}}>
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Make an arbitrage\nprofit'}
-              cardText={'At each transaction causing\nan arb-opportunity'} 
+              cardText={'At each transaction causing\nan arb-opportunity'}
+              link="https://split-docs.gitbook.io/docs/features/mev-extracting"
             />
           </div>
 
           {/* slaid4 */}
           <div className='slaidHide' id='slaid4' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'The most functional\ntrading terminal'}
-              cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'} 
+              cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'}
+              link="https://split-docs.gitbook.io/docs/features/limit-orders"
             />
           </div>
 
           {/* slaid5 */}
           <div className='slaidHide' id='slaid5' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Seamless Cross\nChain'}
-              cardText={'From Any to Any asset per one transaction\n'} 
+              cardText={'From Any to Any asset per one transaction\n'}
+              link="https://split-docs.gitbook.io/docs/features/cross-chain"
             />
           </div>
 
@@ -750,7 +767,7 @@ function App() {
             <p className="fsize-2 text-start f-barlow-400 white ms-3 mt-2">in the execution of trades</p>
             <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
               <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
+                <p
                   className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-roboto-400'}>
                   {'Learn more'}
                 </p>
@@ -760,28 +777,30 @@ function App() {
 
           {/* slaid7 */}
           <div className='slaidHide' id='slaid6' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
-              cardTitle={'MEV protection in any\nchain'}
-              cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'} 
+              cardTitle={'Get MEV in any chain'}
+              cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'}
+              link="https://split-docs.gitbook.io/docs/features/split-rpc"
             />
           </div>
 
           {/* slaid8 */}
           <div className='slaidHide' id='slaid7' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Grouping minor\norders'}
-              cardText={'No more waiting for a long execution\nof a small order'} 
+              cardText={'No more waiting for a long execution\nof a small order'}
             />
           </div>
 
           {/* slaid9 */}
           <div className='slaidHide' id='slaid8' onClick={() => {clickArrowDown()}}>
-            <DesktopCard 
+            <DesktopCard
               isOrientaionH={isOrientaionH}
               cardTitle={'Get best price\n'}
-              cardText={'With liquidity aggregation from multiple DEXes\n'} 
+              cardText={'With liquidity aggregation from multiple DEXes\n'}
+              link="https://split-docs.gitbook.io/docs/features/mev-extracting"
             />
           </div>
 
@@ -796,27 +815,27 @@ function App() {
         </div>)
       }
 
-        
+
 
         {/* mobilebody */}
         {isMobile ? (
           <>
           <div id="myCarousel" class="carousel slide " data-bs-ride="carousel" data-bs-interval="false" data-bs-touch="true">
             <div className='row p-0 m-0 d-flex justify-content-between menuM'>
-              <button 
+              <button
                 className='buttonCarouselM col-6 d-flex justify-content-center p-0 m-0 ps-2'
-                type="button" 
-                data-bs-target="#myCarousel" 
+                type="button"
+                data-bs-target="#myCarousel"
                 data-bs-slide="prev"
                 id='buttonMenuM1'
               >
                 <p className='text-start fsize-16 leftMenuItemSelect p-0 m-0 f-barlow-700' >{arrMenuItemSlaids[curMenuItemM]}</p>
               </button>
-              
-              <button 
-                className='buttonCarouselM col-6 d-flex justify-content-center p-0 m-0' 
-                type="button" 
-                data-bs-target="#myCarousel" 
+
+              <button
+                className='buttonCarouselM col-6 d-flex justify-content-center p-0 m-0'
+                type="button"
+                data-bs-target="#myCarousel"
                 data-bs-slide="next"
                 id='buttonMenuM2'
               >
@@ -838,7 +857,7 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Track best dealer and\ncopy their trades'}
                     cardText={'With most innovative trading tools'}
                     isButton={true}
@@ -847,17 +866,17 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Dont need Gas token\nin wallet'}
                     cardText={'Pay in any asset and get cashbacks'}
                     isButton={true}
                   />
-                  
+
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Make an arbitrage\nprofit'}
                     cardText={'At each transaction causing\nan arb-opportunity'}
                     isButton={true}
@@ -866,7 +885,7 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'The most functional\ntrading terminal'}
                     cardText={'With Limit, Take Profit, Stop Loss\nand Trailling Stop orders'}
                     isButton={true}
@@ -875,7 +894,7 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Seamless Cross-\nChain'}
                     cardText={'From Any to Any asset per one transaction\n'}
                     isButton={true}
@@ -891,7 +910,7 @@ function App() {
                   <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">in the execution of trades</p>
                   <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3 me-2'>
                     <div className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3 '>
-                      <p 
+                      <p
                         className='p-0 m-0 f-roboto-400'>
                         {'Learn more'}
                       </p>
@@ -902,7 +921,7 @@ function App() {
 
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'MEV protection in any\nchain'}
                     cardText={'Add our RPC to Metamask to catch\narbs from multiple DEXes'}
                     isButton={true}
@@ -911,7 +930,7 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Grouping minor\norders'}
                     cardText={'No more waiting for a long execution\nof a small order'}
                     isButton={false}
@@ -920,7 +939,7 @@ function App() {
               </div>
               <div class="carousel-item" data-bs-interval="2000">
                 <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
-                  <MobCard 
+                  <MobCard
                     cardTitle={'Get best price\n'}
                     cardText={'With liquidity aggregation from multiple DEXes\n'}
                     isButton={false}
@@ -928,7 +947,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
           </div>
           </>
         ): null}
@@ -958,7 +977,7 @@ function App() {
               </div>
 
               <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>
-                <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Twitter</p>
+                <p className='text-start white col-4 m-0 p-0 f-barlow-700'>Twitter</p>
                 <div className='col-8'>
                   <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
                     <svg className='col-1 m-0 p-0 me-2' width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -974,8 +993,8 @@ function App() {
               </div>
 
               <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>
-                
-                <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Community</p>
+
+                <p className='text-start white col-4 m-0 p-0 f-barlow-700'>Community</p>
                 <div className='col-8'>
                   <button className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
                     <svg className='col-1 m-0 p-0 me-2' width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -994,7 +1013,7 @@ function App() {
               {/* <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-3'>
                 <svg className='col-1 m-0 p-0' width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M5.64991 16C3.57026 16 1.63168 15.3455 0 14.2161C1.38535 14.3131 3.83019 14.0808 5.35087 12.5112C3.06326 12.3976 2.0316 10.499 1.89703 9.68763C2.0914 9.76876 3.01841 9.86613 3.54172 9.63894C0.910221 8.92495 0.506525 6.42596 0.596235 5.66329C1.08964 6.03651 1.92694 6.16633 2.25587 6.13387C-0.196205 4.23529 0.685945 1.37931 1.11954 0.762677C2.87924 3.40081 5.51649 4.88248 8.7791 4.9649C8.71759 4.67294 8.6851 4.36899 8.6851 4.0568C8.6851 1.81629 10.3586 0 12.423 0C13.5016 0 14.4735 0.495829 15.1558 1.28893C15.8766 1.10616 16.9613 0.678308 17.4916 0.308316C17.2243 1.34686 16.3922 2.21321 15.8888 2.53431C15.893 2.54524 15.8847 2.52334 15.8888 2.53431C16.331 2.46194 17.5274 2.21313 18 1.86613C17.7663 2.44957 16.884 3.41964 16.16 3.96273C16.2947 10.3917 11.7492 16 5.64991 16Z" fill="white"/>
-                </svg>              
+                </svg>
                 <p className='text-start white col-4 m-0 p-0 f-roboto-400'>Limex retweet</p>
                 <input className='input-social col-7 f-barlow-400 h-5h' placeholder='youre @nickname'
                   id='dscnick' value={dscNick} onChange={(e) => setDscNick(e.target.value)}

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 
 export function DesktopCard(props) {
-    const isOrientaionH = props.isOrientaionH
-    const cardTitle = props.cardTitle
-    const cardText = props.cardText
+    const { cardText, cardTitle, isOrientaionH, link } = props;
+
     return (
         <>
             <p className={isOrientaionH ?
@@ -19,14 +18,30 @@ export function DesktopCard(props) {
             >
               {cardText}
             </p>
-            <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
-              <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
-                <p 
-                  className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-barlow-700 fw-bold'}>
-                  {'Learn more'}
-                </p>
-              </div>
-            </div>
+                {link ? (
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+                      <a
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                        href={link}
+                        target="_blank"
+                        className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-barlow-700 fw-bold'}
+                        onClick={(event) => event.stopPropagation()}
+                      >
+                        <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                            {'Learn more'}
+                        </div>
+                      </a>
+                  </div>
+                ) : (
+                  <div className='d-flex justify-content-end position-absolute bottom-0 end-0 mb-3'>
+                    <div className='buttonConnectWallet col-6 d-flex align-items-center justify-content-center mx-3'>
+                      <p
+                        className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-barlow-700 fw-bold'}>
+                        {'Learn more'}
+                      </p>
+                    </div>
+                  </div>
+                )}
         </>
     )
 }
