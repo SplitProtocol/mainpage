@@ -1,3 +1,30 @@
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: inherit;
+}
+
+.Logo img,
+.Logo svg {
+  width: 45px;
+  height: 45px;
+}
+
+@media (max-width: 768px) {
+  .Logo img,
+  .Logo svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 .App {
   text-align: center;
   height: 100vh;
@@ -152,8 +179,18 @@
   font-size: 16px;
 }
 
-.fsize-32 {
-  font-size: 32px;
+
+
+@media (max-width: 567px) {
+  .fsize-32 {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 567px) {
+  .fsize-32 {
+    font-size: 42px;
+  }
 }
 
 .fsize-14 {

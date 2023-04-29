@@ -3,8 +3,8 @@ import {ArbitrumLogo, AvalancheLogo, BSCLogo, EthereumLogo, FantomLogo, Optimism
 export const chainsData = {
   polygon: {
     chainId: "0x89",
-    chainName: "Polygon Mainnet",
-    rpcUrls: ["https://polygon-rpc.com"],
+    chainName: "Split Polygon",
+    rpcUrls: ["https://splitrouter.io/http/polygon"],
     nativeCurrency: {
       name: "MATIC",
       symbol: "MATIC",
@@ -14,8 +14,8 @@ export const chainsData = {
   },
   arbitrum: {
     chainId: "0xa4b1",
-    chainName: "Arbitrum One",
-    rpcUrls: ["https://arb1.arbitrum.io/rpc"],
+    chainName: "Split Arbitrum",
+    rpcUrls: ["https://splitrouter.io/http/arbitrum"],
     nativeCurrency: {
       name: "Arbitrum",
       symbol: "ARB",
@@ -25,8 +25,8 @@ export const chainsData = {
   },
   bsc: {
     chainId: "0x38",
-    chainName: "Binance Smart Chain Mainnet",
-    rpcUrls: ["https://bsc-dataseed1.binance.org"],
+    chainName: "Split BSC",
+    rpcUrls: ["https://splitrouter.io/http/bsc"],
     nativeCurrency: {
       name: "BNB",
       symbol: "BNB",
@@ -36,8 +36,8 @@ export const chainsData = {
   },
   avalanche: {
     chainId: "0xa86a",
-    chainName: "Avalanche C-Chain",
-    rpcUrls: ["https://api.avax.network/ext/bc/C/rpc"],
+    chainName: "Split Avalanche",
+    rpcUrls: ["https://splitrouter.io/http/avalanche"],
     nativeCurrency: {
       name: "AVAX",
       symbol: "AVAX",
@@ -47,8 +47,8 @@ export const chainsData = {
   },
   fantom: {
     chainId: "0xfa",
-    chainName: "Fantom Opera",
-    rpcUrls: ["https://rpc.ftm.tools"],
+    chainName: "Split Fantom",
+    rpcUrls: ["https://splitrouter.io/http/fantom"],
     nativeCurrency: {
       name: "FTM",
       symbol: "FTM",
@@ -57,20 +57,20 @@ export const chainsData = {
     blockExplorerUrls: ["https://snowtrace.io"],
   },
   optimism: {
-    chainId: "0xfa",
-    chainName: "Optimism",
-    rpcUrls: ["https://mainnet.optimism.io"],
+    chainId: "0xa",
+    chainName: "Split Optimism",
+    rpcUrls: ["https://splitrouter.io/http/optimism"],
     nativeCurrency: {
-      name: "Optimism",
-      symbol: "OP",
+      name: "Ethereum",
+      symbol: "ETH",
       decimals: 18,
     },
     blockExplorerUrls: ["https://optimistic.etherscan.io/"],
   },
   ethereum: {
     chainId: '0x1',
-    chainName: 'Ethereum',
-    rpcUrls: ['https://eth.llamarpc.com'],
+    chainName: 'Split Ethereum',
+    rpcUrls: ['https://splitrouter.io/http/eth'],
     nativeCurrency: {
       name: 'Ethereum',
       symbol: 'ETH',
