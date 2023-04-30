@@ -20,8 +20,8 @@ a:hover {
 @media (max-width: 768px) {
   .Logo img,
   .Logo svg {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 }
 

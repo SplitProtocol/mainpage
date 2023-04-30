@@ -37,7 +37,7 @@ function App() {
         'Limit Orders',
         'Cross-Chain',
         'Split RPC',
-        'Bundling',
+        // 'Bundling',
         'Aggregation'
     ]
     const [curMenuItemM, setcurMenuItemM] = useState(0)
@@ -332,13 +332,13 @@ function App() {
                 console.log(e.from, e.direction)
                 setTimeout(() => {
                     if (e.direction == 'left') {
-                        if (e.from == 8) {
+                        if (e.from == 7) {
                             setcurMenuItemM(0)
                             setnextMenuItemM(1)
                         }
                         else {
                             setcurMenuItemM(e.from + 1)
-                            if (e.from + 1 == 8) {
+                            if (e.from + 1 == 7) {
                                 setnextMenuItemM(0)
                             }
                             else {
@@ -348,7 +348,7 @@ function App() {
                     }
                     else {
                         if (e.from == 0) {
-                            setcurMenuItemM(8)
+                            setcurMenuItemM(7)
                             setnextMenuItemM(0)
                         }
                         else {
@@ -492,7 +492,10 @@ function App() {
                         {/* <div className='col-1'>
             </div> */}
 
-                        <div className={isMobile || isOrientaionH ? 'col-5 d-flex justify-content-end' : 'col-6'}>
+                        <div
+                          className={isMobile || isOrientaionH ? 'col-4 d-flex justify-content-end p-0' : 'col-6'}
+                          style={isMobile || isOrientaionH ? { marginLeft: 4 } : undefined}
+                        >
                             <NetworksDropdown>
                                 <div className={isMobile || isOrientaionH ?
                                     ('buttonConnectWalletM d-flex align-items-center justify-content-center p-0 m-0 h-32') :
@@ -857,8 +860,7 @@ function App() {
 
                                 <div class="carousel-item active" data-bs-interval="10000">
                                     <div className='slaidM ms-3 mt-4' id='slaid0'>
-                                        <p className="fsize-32 text-start f-glory white ms-2 m-0 p-0">Omni-Chain arbitrage</p>
-                                        <p className="fsize-32 text-start f-glory white ms-2 m-0 p-0">DEX Aggregator</p>
+                                        <p className="fsize-32 text-start f-glory white ms-2 m-0 p-0">Omni-Chain MEV DEX aggregator</p>
                                         <p className="fsize-16 text-start f-barlow-400 white ms-2 mt-2">With copytrading tools and custom RPC</p>
                                     </div>
                                 </div>
@@ -941,7 +943,7 @@ function App() {
                                         />
                                     </div>
                                 </div>
-                                <div class="carousel-item" data-bs-interval="2000">
+                                {/* <div class="carousel-item" data-bs-interval="2000">
                                     <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                                         <MobCard
                                             cardTitle={'Grouping minor\norders'}
@@ -949,7 +951,7 @@ function App() {
                                             isButton={false}
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                                 <div class="carousel-item" data-bs-interval="2000">
                                     <div className='slaidM ms-3 mt-4 bg-slaid p-1 pt-3' id='slaid1'>
                                         <MobCard
