@@ -17,8 +17,8 @@ export const chainsData = {
     chainName: "Split Arbitrum",
     rpcUrls: ["https://splitrouter.io/http/arbitrum"],
     nativeCurrency: {
-      name: "Arbitrum",
-      symbol: "ARB",
+      name: "Ethereum",
+      symbol: "ETH",
       decimals: 18,
     },
     blockExplorerUrls: ["https://arbiscan.io/"],
