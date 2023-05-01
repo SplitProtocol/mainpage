@@ -494,7 +494,7 @@ function App() {
 
                         <div
                           className={isMobile || isOrientaionH ? 'col-4 d-flex justify-content-end p-0' : 'col-6'}
-                          style={isMobile || isOrientaionH ? { marginLeft: 4 } : undefined}
+                          style={isMobile || isOrientaionH ? { marginLeft: 4, marginRight: -10 } : undefined}
                         >
                             <NetworksDropdown>
                                 <div className={isMobile || isOrientaionH ?
