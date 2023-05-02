@@ -503,7 +503,9 @@ function App() {
                                     <p
                                         className={isMobile ?
                                             ('p-0 m-0 f-barlow-700 fsize-12 vw ') :
-                                            ('p-0 m-0 f-roboto-400 fw-bold')}>
+                                            ('p-0 m-0 fw-bold')}
+                                        style={isMobile ? {} : { fontSize: 18 }}
+                                    >
                                         Split RPC
                                     </p>
                                 </div>

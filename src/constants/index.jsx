@@ -54,7 +54,7 @@ export const chainsData = {
       symbol: "FTM",
       decimals: 18,
     },
-    blockExplorerUrls: ["https://snowtrace.io"],
+    blockExplorerUrls: ["https://ftmscan.com/"],
   },
   optimism: {
     chainId: "0xa",
@@ -88,7 +88,7 @@ export const chains = [
   },
   {
     value: "56",
-    label: "BCS Mainnet",
+    label: "BSC Mainnet",
     icon: <BSCLogo />,
   },
   {
