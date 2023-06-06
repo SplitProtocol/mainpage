@@ -111,9 +111,4 @@ export const chains = [
     label: "Fantom",
     icon: <FantomLogo />,
   },
-  {
-    value: '10',
-    label: 'Optimism',
-    icon: <OptimismLogo />,
-  }
 ]
