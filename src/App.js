@@ -998,7 +998,7 @@ function App() {
                             <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>
                                 <p className='text-start white col-4 m-0 p-0 f-barlow-700'>Twitter</p>
                                 <div className='col-8'>
-                                    <a href="https://twitter.com/split_finance" target="_blank" className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
+                                    <a href="https://twitter.com/SplitProtocol" target="_blank" className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center'>
                                         <svg className='col-1 m-0 p-0 me-2' width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M5.64991 16C3.57026 16 1.63168 15.3455 0 14.2161C1.38535 14.3131 3.83019 14.0808 5.35087 12.5112C3.06326 12.3976 2.0316 10.499 1.89703 9.68763C2.0914 9.76876 3.01841 9.86613 3.54172 9.63894C0.910221 8.92495 0.506525 6.42596 0.596235 5.66329C1.08964 6.03651 1.92694 6.16633 2.25587 6.13387C-0.196205 4.23529 0.685945 1.37931 1.11954 0.762677C2.87924 3.40081 5.51649 4.88248 8.7791 4.9649C8.71759 4.67294 8.6851 4.36899 8.6851 4.0568C8.6851 1.81629 10.3586 0 12.423 0C13.5016 0 14.4735 0.495829 15.1558 1.28893C15.8766 1.10616 16.9613 0.678308 17.4916 0.308316C17.2243 1.34686 16.3922 2.21321 15.8888 2.53431C15.893 2.54524 15.8847 2.52334 15.8888 2.53431C16.331 2.46194 17.5274 2.21313 18 1.86613C17.7663 2.44957 16.884 3.41964 16.16 3.96273C16.2947 10.3917 11.7492 16 5.64991 16Z" fill="white" />
                                         </svg>
