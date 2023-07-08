@@ -11,6 +11,10 @@ a:hover {
   color: inherit;
 }
 
+li {
+  list-style: none;
+}
+
 .Logo img,
 .Logo svg {
   width: 45px;
