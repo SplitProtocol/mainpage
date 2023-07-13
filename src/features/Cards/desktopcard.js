@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 
 export function DesktopCard(props) {
@@ -23,6 +23,7 @@ export function DesktopCard(props) {
                       <a
                         style={{ textDecoration: 'none', color: 'inherit' }}
                         href={link}
+                        rel="noreferrer"
                         target="_blank"
                         className={isOrientaionH ? 'p-0 m-0 f-roboto-400 fsize-3h': 'p-0 m-0 f-barlow-700 fw-bold'}
                         onClick={(event) => event.stopPropagation()}

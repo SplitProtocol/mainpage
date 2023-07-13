@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 
 export const MobCard = ({ cardText, cardTitle, isButton, link }) => {
@@ -13,6 +13,7 @@ export const MobCard = ({ cardText, cardTitle, isButton, link }) => {
                     <a
                       href={link}
                       target="_blank"
+                      rel="noreferrer"
                       referrerPolicy="no-referrer"
                       className='buttonConnectWalletH d-flex align-items-center justify-content-center mx-3'
                     >

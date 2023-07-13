@@ -1,4 +1,4 @@
-import {ArbitrumLogo, AvalancheLogo, BSCLogo, EthereumLogo, FantomLogo, OptimismLogo, PolygonLogo} from "../icons";
+import {ArbitrumLogo, AvalancheLogo, BSCLogo, EthereumLogo, FantomLogo, PolygonLogo} from "../icons";
 
 export const chainsData = {
   polygon: {

@@ -14,5 +14,5 @@ export const useOutsideAlerter = (ref, onClose) => {
     return () => {
       document.removeEventListener("click", onClick);
     };
-  }, []);
+  }, [onClose, ref]);
 };

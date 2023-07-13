@@ -18,20 +18,20 @@ import {useMedia} from "use-media";
 
 
 function App() {
-    
+
     const [ activeOption, setActiveOption ] = useState(0)
     const options = [
         { title: "option 1" },
         { title: "option 2" },
         { title: "option 3" },
     ]
-    
+
     const [ activeCurrency, setActiveCurrency ] = useState(0)
     const currencies = [
         { title: "USDT" },
         { title: "USDC" },
     ]
-    
+
     const showActiveOption = e => setActiveOption(+e.target.dataset.index);
     const showActiveCurrency = e => setActiveCurrency(+e.target.dataset.index);
 
@@ -198,7 +198,7 @@ function App() {
 
     function clickArrowTop() {
         console.log('cur', SelectedMenuItem)
-        if (SelectedMenuItem == 1) {
+        if (SelectedMenuItem === 1) {
             console.log('up')
             moveMenuDown()
         }
@@ -211,14 +211,14 @@ function App() {
 
         let num_slaid = parseInt(curNumSlaid)
         let next_num_slaid = num_slaid - 1
-        if (next_num_slaid == -1) { next_num_slaid = 7 }
+        if (next_num_slaid === -1) { next_num_slaid = 7 }
 
         let sld = 'slaid7'
-        if (num_slaid != 0) {
+        if (num_slaid !== 0) {
             sld = 'slaid' + next_num_slaid.toString()
         }
 
-        if (curNumSlaid == '2') {
+        if (curNumSlaid === '2') {
             setMenuItemSelect('item1')
         }
         else {
@@ -280,7 +280,7 @@ function App() {
     function hideCurrentSlaid() {
         document.getElementById(CurrentSlaid).className = 'slaidHide'
     }
-    
+
     const isTablet = useMedia({maxWidth: '1000px'});
 
     useEffect(() => {
@@ -295,14 +295,14 @@ function App() {
                 document.getElementById('nextM').style.display = 'none'
                 console.log(e.from, e.direction)
                 setTimeout(() => {
-                    if (e.direction == 'left') {
-                        if (e.from == 7) {
+                    if (e.direction === 'left') {
+                        if (e.from === 7) {
                             setcurMenuItemM(0)
                             setnextMenuItemM(1)
                         }
                         else {
                             setcurMenuItemM(e.from + 1)
-                            if (e.from + 1 == 7) {
+                            if (e.from + 1 === 7) {
                                 setnextMenuItemM(0)
                             }
                             else {
@@ -311,7 +311,7 @@ function App() {
                         }
                     }
                     else {
-                        if (e.from == 0) {
+                        if (e.from === 0) {
                             setcurMenuItemM(7)
                             setnextMenuItemM(0)
                         }
@@ -912,7 +912,7 @@ function App() {
                                 <p className='text-start white fsize-24 mb-0 p-0 f-barlow-700'>Become the stakeholder</p>
                                 <p className='text-start white m-0 p-0 f-barlow-400'>about</p>
                             </div>
-                            
+
                             <form className="form">
                                 <div className="line form__line">
                                     <p>Tokens count</p>
@@ -959,9 +959,9 @@ function App() {
                                     </div>
                                 </div>
                             </form>
-                            
+
                             {/*------*/}
-                            
+
                 {/*            <div className='row d-flex align-items-center justify-content-start m-0 p-0 mt-4'>*/}
                 {/*                <p className='text-start white col-4 m-0 p-0 f-barlow-700 fsize-16'>Announcements</p>*/}
                 {/*                /!* <input type='text' className='input-social col-7 f-barlow-400 h-5h border-grey' placeholder='youre @nickname' id='tgnick' value={tgNick} onChange={(e) => setTgNick(e.target.value)}>*/}
@@ -975,7 +975,7 @@ function App() {
                 {/*                    </a>*/}
                 {/*                </div>*/}
                 {/*            </div>*/}
-                
+
                 {/*            <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>*/}
                 {/*                <p className='text-start white col-4 m-0 p-0 f-barlow-700'>Twitter</p>*/}
                 {/*                <div className='col-8'>*/}
@@ -991,9 +991,9 @@ function App() {
                 {/*>*/}
                 {/*</input> *!/*/}
                 {/*            </div>*/}
-                
+
                 {/*            <div className='row d-flex align-items-center justify-content-between m-0 p-0 mt-2'>*/}
-                
+
                 {/*                <p className='text-start white col-4 m-0 p-0 f-barlow-700'>Community</p>*/}
                 {/*                <div className='col-8'>*/}
                 {/*                    <a href="https://discord.com/invite/Qvn4t7x6VY" target="_blank" className='buttonSocial w-100  px-2 d-flex align-items-center justify-content-center' rel="noreferrer">*/}
@@ -1008,7 +1008,7 @@ function App() {
                 {/*>*/}
                 {/*</input> *!/*/}
                 {/*            </div>*/}
-                            
+
                             {/*------*/}
 
 
