@@ -5,7 +5,7 @@ export function MobForm() {
     }
 
     const handleClickTwitter = () => {
-        window.open('https://twitter.com/split_finance', '_blank').focus();
+        window.open('https://twitter.com/splitprotocol', '_blank').focus();
     }
 
     const handleClickDiscord = () => {
@@ -23,7 +23,7 @@ export function MobForm() {
                     <svg className='col-2 m-0 p-0' width="32" height="34" viewBox="0 0 32 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M35.9698 2.93563C36.2503 0.979486 34.5272 -0.564513 32.9158 0.199132L0.82084 15.4089C-0.334736 15.9565 -0.250209 17.8458 0.948301 18.2577L7.56708 20.5328C8.83031 20.967 10.1982 20.7425 11.3013 19.9199L26.2237 8.79209C26.6737 8.45652 27.1642 9.14712 26.7797 9.57496L16.0383 21.5284C14.9963 22.688 15.2031 24.6528 16.4564 25.5012L28.4827 33.6413C29.8315 34.5543 31.5668 33.6371 31.8191 31.8778L35.9698 2.93563Z" fill="white" />
                     </svg>
-                    {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
+                    {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname'
                       id='tgnick' value={tgNick} onChange={(e) => setTgNick(e.target.value)}>
               </input> */}
                     <div className='col-10'>
@@ -46,7 +46,7 @@ export function MobForm() {
                             <p className='whitegrey p-0 m-0 f-barlow-700 fsize-16'>Twitter</p>
                         </button>
                     </div>
-                    {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
+                    {/* <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname'
                       id='twnick' value={twNick} onChange={(e) => setTwNick(e.target.value)}
               >
               </input> */}
@@ -56,7 +56,7 @@ export function MobForm() {
               <svg className='col-2 m-0 p-0' width="36" height="32" viewBox="0 0 36 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M11.2998 32C7.14053 32 3.26337 30.6909 0 28.4322C2.77071 28.6262 7.66038 28.1616 10.7017 25.0223C6.12653 24.7951 4.06319 20.998 3.79406 19.3753C4.18281 19.5375 6.03682 19.7323 7.08344 19.2779C1.82044 17.8499 1.01305 12.8519 1.19247 11.3266C2.17928 12.073 3.85387 12.3327 4.51174 12.2677C-0.392409 8.47059 1.37189 2.75862 2.23909 1.52535C5.75849 6.80162 11.033 9.76497 17.5582 9.9298C17.4352 9.34589 17.3702 8.73798 17.3702 8.11359C17.3702 3.63258 20.7172 0 24.846 0C27.0033 0 28.9471 0.991658 30.3116 2.57786C31.7532 2.21232 33.9227 1.35662 34.9833 0.616633C34.4487 2.69371 32.7843 4.42642 31.7776 5.06863C31.7859 5.09048 31.7694 5.04669 31.7776 5.06863C32.6619 4.92388 35.0547 4.42625 36 3.73225C35.5325 4.89913 33.768 6.83927 32.3199 7.92546C32.5893 20.7834 23.4983 32 11.2998 32Z" fill="white"/>
               </svg>
-              <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname' 
+              <input className='input-social col-10 f-barlow-400 h-6h' placeholder='youre @nickname'
                 id='rtwnick' value={rtwNick} onChange={(e) => setRtwNick(e.target.value)}
               >
               </input>
